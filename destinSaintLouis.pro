@@ -25,7 +25,7 @@ CONFIG += resources_big
 
 SOURCES += \
         main.cpp \
-    ../destinLib/aventure.cpp \
+    ../destinLib/univers.cpp \
     ../destinLib/carac.cpp \
     ../destinLib/choix.cpp \
     ../destinLib/condition.cpp \
@@ -44,7 +44,7 @@ SOURCES += \
     saintlouis.cpp
 
 HEADERS += \
-    ../destinLib/aventure.h \
+    ../destinLib/univers.h \
     ../destinLib/carac.h \
     ../destinLib/choix.h \
     ../destinLib/condition.h \
@@ -63,7 +63,7 @@ HEADERS += \
     saintlouis.h
 
 FORMS += \
-    ../destinLib/aventure.ui \
+    ../destinLib/univers.ui \
     ../destinLib/carac.ui \
     ../destinLib/choix.ui \
     ../destinLib/effet.ui \

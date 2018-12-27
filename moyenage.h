@@ -2,7 +2,7 @@
 #define MOYENAGE_H
 
 #include <QWidget>
-#include "../destinLib/aventure.h"
+#include "../destinLib/univers.h"
 
 
 class MoyenAge : public Univers

@@ -1,19 +1,17 @@
 #include "moyenage.h"
 #include "../destinLib/perso.h"
-#include "ui_aventure.h"
+#include "ui_univers.h"
 #include "viesaintlouis.h"
 
 MoyenAge::MoyenAge(ModeAffichage modeAffichage,
                    QWidget *parent,
                    QString premierEvt,
                    QString premierEffet)
-: Univers(parent, modeAffichage)
+: Univers(parent, modeAffichage, true)
 {
     m_Perso = new IPerso(ui->persoWidget);
     m_Histoire = new VieSaintLouis(ui->histoireWidget);
     this->setWindowTitle("Vie de Saint Louis");
-
-
 
     // positionner l'interface
     ui->persoWidget->layout()->addWidget(m_Perso);

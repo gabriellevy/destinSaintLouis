@@ -1,5 +1,5 @@
 #include "viesaintlouis.h"
-#include "ui_aventure.h"
+#include "ui_univers.h"
 #include "saintlouis.h"
 
 VieSaintLouis::VieSaintLouis(QWidget *parent):Histoire(parent)
