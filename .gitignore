@@ -1,0 +1,7 @@
+
+*.pyc
+*.rpyc
+*.bak
+game/saves/navigation.json
+game/saves/persistent
+log.txt
