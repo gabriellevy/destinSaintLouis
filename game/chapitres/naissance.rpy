@@ -39,27 +39,27 @@ init -5 python:
         # situation[metier.Chasseur.NOM] = trait.Trait.SEUIL_A
 
         # caracs spécifiques
-        # situation[clovis.Clovis.C_CHRISTIANISME] = 0
-        # situation[clovis.Clovis.C_MILITAIRE] = 0
-        # situation[clovis.Clovis.C_DIPLOMATIE] = 0
-        # situation.SetValCarac(clovis.Clovis.C_GLOIRE, 0)
+        # situation[heros.Heros.C_CHRISTIANISME] = 0
+        # situation[heros.Heros.C_MILITAIRE] = 0
+        # situation[heros.Heros.C_DIPLOMATIE] = 0
+        # situation.SetValCarac(heros.Heros.C_GLOIRE, 0)
 
         # famille
-        # situation.SetValCarac(clovis.Clovis.C_ALBOFLEDE, 1)
+        # situation.SetValCarac(heros.Heros.C_ALBOFLEDE, 1)
 
         # légalisme
-        # situation.SetValCarac(clovis.Clovis.C_LOI_SALIQUE, 1)
+        # situation.SetValCarac(heros.Heros.C_LOI_SALIQUE, 1)
 
         situation[identite.Identite.C_NOM] = heros.Heros.C_NOM
 
-        # situation[clovis.Clovis.CARTE_ACTUELLE] = "bg carte481"
+        # situation[heros.Heros.CARTE_ACTUELLE] = "bg carte481"
         return
 
     """
     def genererParents(situation):
         pere = pnj_roi_clovis.GenererPNJPapaClovis(situation)
         pere.ageJours = 43 * 12 *30 + 24
-        pere.prenom_ = clovis.Clovis.C_NOM_CHILDERIC
+        pere.prenom_ = heros.Heros.C_NOM_CHILDERIC
         pere.nom_ = ""
         pere.sexeMasculin_ = True
         pere.portraitStr_ = "images/portraits/childeric.jpg"
@@ -67,7 +67,7 @@ init -5 python:
 
         mere = pnj_roi_clovis.GenererPNJMamanClovis(situation)
         mere.ageJours = 36 * 12 *30 + 297
-        mere.prenom_ = clovis.Clovis.C_NOM_BASINE
+        mere.prenom_ = heros.Heros.C_NOM_BASINE
         mere.nom_ = ""
         mere.sexeMasculin_ = False
         mere.portraitStr_ = "images/portraits/basine.jpg"

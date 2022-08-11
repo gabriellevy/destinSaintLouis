@@ -1,0 +1,34 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/evts_generaux/evts_roi.rpy", line 1, in script
+    init -5 python:
+  File "game/evts_generaux/evts_roi.rpy", line 1, in script
+    init -5 python:
+  File "game/evts_generaux/evts_roi.rpy", line 10, in <module>
+    from chapitres.classes import clovis
+ImportError: cannot import name clovis
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 560, in main
+    renpy.game.context().run(node)
+  File "game/evts_generaux/evts_roi.rpy", line 1, in script
+    init -5 python:
+  File "game/evts_generaux/evts_roi.rpy", line 1, in script
+    init -5 python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/evts_generaux/evts_roi.rpy", line 10, in <module>
+    from chapitres.classes import clovis
+ImportError: cannot import name clovis
+
+Windows-10-10.0.19041
+Ren'Py 7.4.11.2266
+destinSaintLouis 1.0
+Thu Aug 11 22:19:59 2022
