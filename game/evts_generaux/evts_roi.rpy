@@ -32,14 +32,6 @@ init -5 python:
         gestionPillage = declencheur.Declencheur(proba.Proba(0.02, True), "gestionPillage")
         gestionPillage.AjouterCondition(estRoi)
         selecteur_.ajouterDeclencheur(gestionPillage)
-        # antrustions
-        probaAntrustion = proba.Proba(0.03, True)
-        modifProbaAntrustion = modifProba.ModifProba(0.08, usurpationPlusQue4)
-        probaAntrustion.ajouterModifProba(modifProbaAntrustion)
-        antrustions = declencheur.Declencheur(probaAntrustion, "antrustions")
-        antrustions.AjouterCondition(estRoi)
-        antrustions.AjouterCondition(usurpationPlusQue2)
-        selecteur_.ajouterDeclencheur(antrustions)
         # recrutement
         probarecrutement = proba.Proba(0.02, True)
         modifProbarecrutement = modifProba.ModifProba(0.06, armeeMoinsQue2)
@@ -158,25 +150,10 @@ label impots:
                         pass
     jump fin_cycle
 
-label antrustions:
-    scene bg cours_merovingienne
-    with dissolve
-    "Les francs sont mécontents, vous vous sentez menacé."
-    "Peut-être est-ce le moment de nommer de nouveaux antrustions. Ces huerriers d'élite de confiance ont des privilèges divers et sont bien payés."
-    "Ils sont surtout si fidèles qu'ils feront barrage de leur corps pour vous protéger."
-    menu:
-        "Engager des antrustions ?"
-        "Oui":
-            $ RetirerACarac(heros.Heros.C_USURPATION, 1)
-            $ RetirerACarac(trait.Richesse.NOM, 1)
-        "Non":
-            jump fin_cycle
-    jump fin_cycle
-
 label gestionPillage:
     scene bg cours_merovingienne
     with dissolve
-    $ nomSenateur = gaulois_.CreerPrenom(True)
+    $ nomSenateur = francss_.CreerPrenom(True)
     "Le sénateur gallo-romain [nomSenateur] vient à vous se plaindre humblement des pillages causés par vos guerriers et vous demande d'y mettre un terme."
     menu:
         "Interdire le pillage sous peine de mort":

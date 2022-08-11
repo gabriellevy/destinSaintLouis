@@ -3,7 +3,7 @@ from abs.univers import temps
 from abs.humanite.amour import relationAmoureuse
 from abs.humanite import identite
 from abs.humanite import pnj
-from spe.humanite import portrait_roi_clovis
+from spe.humanite import portrait_saint_louis
 
 class PnjRoiClovis(pnj.Pnj):
 
@@ -34,7 +34,7 @@ class PnjRoiClovis(pnj.Pnj):
         """
         à appeler de temps en temps (changement de boulot, passage de dizaines en âge etc, je sais pas trop
         """
-        portr = portrait_roi_clovis.PortraitRoiClovis()
+        portr = portrait_saint_louis.PortraitRoiClovis()
         ageNbAnnees = self.nbJours_/365
         metObj = None
         if self.metier_ != "":

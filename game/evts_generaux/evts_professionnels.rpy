@@ -36,7 +36,7 @@ init -5 python:
         # entrainement stratège/général
         entrainementStratege = declencheur.Declencheur(proba.Proba(0.1, True), "entrainementStratege")
         entrainementStratege.AjouterCondition(estPasStrategeNivExtreme)
-        entrainementStratege.AjouterCondition(estPasRoi) # c'est Childéric qui fait la leçon
+        entrainementStratege.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(entrainementStratege)
 
 label entrainementPretre:

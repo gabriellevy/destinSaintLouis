@@ -57,7 +57,7 @@ init -5 python:
 
     """
     def genererParents(situation):
-        pere = pnj_roi_clovis.GenererPNJPapaClovis(situation)
+        pere = pnj_saint_louis.GenererPNJPapaClovis(situation)
         pere.ageJours = 43 * 12 *30 + 24
         pere.prenom_ = heros.Heros.C_NOM_CHILDERIC
         pere.nom_ = ""
@@ -65,7 +65,7 @@ init -5 python:
         pere.portraitStr_ = "images/portraits/childeric.jpg"
         situation.SetValCarac(pnj.Pnj.C_PERE, pere)
 
-        mere = pnj_roi_clovis.GenererPNJMamanClovis(situation)
+        mere = pnj_saint_louis.GenererPNJMamanClovis(situation)
         mere.ageJours = 36 * 12 *30 + 297
         mere.prenom_ = heros.Heros.C_NOM_BASINE
         mere.nom_ = ""
