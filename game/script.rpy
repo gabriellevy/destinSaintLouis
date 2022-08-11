@@ -35,6 +35,10 @@ init -10 python:
 
 init -1 python:
     from abs import selecteur
+    from spe.donnees_perso import missions
+    from abs.donnees_perso import mission
+    from abs.donnees_perso import possession
+    from spe.donnees_perso import objet_spe
     import random
 
     AjouterEvtsProfessionnels()
@@ -62,6 +66,7 @@ label init_secondary_data:
         # situation_.collectionMaladies = maladies_
         metiers_ = metier.CollectionMetiers()
         # situation_.collectionMetiers = metiers_
+        missions_ = missions.Missions()
         debug_ = True
         # situation_.debug_ = debug_
     jump naissance

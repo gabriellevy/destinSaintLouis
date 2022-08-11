@@ -14,9 +14,10 @@ init -5 python:
     from chapitres.classes import heros
     from abs.religions import religion
 
-    def genererDateNaissance(situation, ageActuel=15):
-        nbJoursDateNaissance = situation[temps.Date.DATE] - 365*ageActuel
-        situation[temps.Date.DATE_NAISSANCE] = nbJoursDateNaissance
+    def genererDateNaissance(ageActuel=15):
+        global situation_
+        nbJoursDateNaissance = situation_.GetValCaracInt(temps.Date.DATE) - 365*ageActuel
+        situation_[temps.Date.DATE_NAISSANCE] = nbJoursDateNaissance
 
     def genererLouis(situation, tousLesTraits):
         # situation[trait.Violence.NOM] = trait.Trait.SEUIL_A_EXTREME
@@ -74,7 +75,7 @@ init -5 python:
         situation.SetValCarac(pnj.Pnj.C_MERE, mere)
     """
 label naissance:
-    $ genererDateNaissance(situation_, 13)
+    $ genererDateNaissance(13) # A FAIRE : décider de l'âge de départ du perso
     $ genererLouis(situation_, traits_)
     # $ genererParents(situation_)
     jump intro

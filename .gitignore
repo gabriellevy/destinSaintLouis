@@ -7,3 +7,6 @@ game/saves/persistent
 log.txt
 *.rpyb
 game/cache/shaders.txt
+errors.txt
+traceback.txt
+*.rpyc

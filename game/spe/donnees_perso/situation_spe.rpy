@@ -21,8 +21,10 @@ init -10 python:
         STAT_DEFAULTS = {
         }
 
-        # def __init__(self, id, **kwargs):
-        #     Situation.__init__(self, id, **kwargs)
+        def __init__(self, id, **kwargs):
+            Situation.__init__(self, id, **kwargs)
+            date = temps.Date(365 * 1210) # A FAIRE : déterminer une date de début d'histoire
+            self.SetValCarac(temps.Date.DATE, date.nbJours_)
 
         # def __init__(self):
         #     situation.Situation.__init__(self, 175000)
