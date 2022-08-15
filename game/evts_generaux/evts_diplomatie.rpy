@@ -7,13 +7,13 @@ init -5 python:
     from abs.humanite import trait
     from abs.humanite import metier
     from chapitres.classes import heros
-    from spe import dec_clo
+    from spe import dec_histo
 
     diplomatieSup0 = condition.Condition(heros.Heros.C_DIPLOMATIE, 0, condition.Condition.SUPERIEUR)
     def AjouterEvtsDiplomatie():
         global selecteur_
         # joueur de citharède
-        # citharede = dec_clo.DecClovisU(proba.Proba(0.08, True), "citharede", 483)
+        # citharede = dec_histo.DecHistoU(proba.Proba(0.08, True), "citharede", 483)
         # citharede.AjouterCondition(estRoi)
         # citharede.AjouterCondition(diplomatieSup0)
         # selecteur_.ajouterDeclencheur(citharede)

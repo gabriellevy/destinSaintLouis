@@ -11,30 +11,16 @@ init -5 python:
     from abs.univers import temps
     # from geographie import quartier
     from abs.humanite import identite
-    from spe import dec_clo
+    from spe import dec_histo
 
     estPasRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.DIFFERENT)
     estRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.EGAL)
 
     def AjouterEvtAvenement():
         global selecteur_
-        avenement = dec_clo.DecClovisU(proba.Proba(0.6, False), "avenement", 481)
+        avenement = dec_histo.DecHistoU(proba.Proba(0.6, False), "avenement", 481)
         avenement.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(avenement)
-        # vision de Childéric
-        visionChilderic = dec_clo.DecClovisU(proba.Proba(0.4, False), "visionChilderic", 481)
-        visionChilderic.AjouterCondition(estRoi)
-        selecteur_.ajouterDeclencheur(visionChilderic)
-
-label visionChilderic:
-    "Votre père Childéric a toujours été l'allié de l'empire romain dont il admirait la grandeur et la sophistication, même si de son temps il était déjà affaibli."
-    "Après tout les romains ont par le passé durement vaincus les francs à plusieurs reprises. Et surtout ils ont combattu et vaincu le terrible Attila aux côté de votre grand-père Mérovée."
-    "Votre père vous a donc tout naturellement poussé vers la même voie politique, vous a vêtu de la pourpre romaine, et vous a toujours souhaité d'obtenir la reconnaissance de l'empereur romain d'Orient."
-    "Mais, depuis, la situation de l'empire s'est encore agravée. En Orient sa puissance et sa richesse sont toujours légendaires, mais en Gaulle son pouvoir est anéanti."
-    "Les Goths dominent. Ils font et défont des empereurs faibles et incompétents, parfois de simples enfants."
-    "L'empire persiste malgré tout par son prestige et aussi par son étrange et rigide système de loi auquel les gaulois s'accrochent."
-    "Dans les années qui suivent vous devrez décider de comment gérer cet héritage. De ce qui mérite d'être sauvé ou au contraire éliminé."
-    jump fin_cycle
 
 label avenement:
     scene bg priere
