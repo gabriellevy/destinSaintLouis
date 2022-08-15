@@ -8,7 +8,7 @@ init -5 python:
     from abs import testDeCarac
     from abs import condition
     from abs.humanite import trait
-    # from spe.humanite import pnj_saint_louis
+    from spe.humanite import pnj_saint_louis
     from abs.univers import temps
     from abs.humanite import identite
     from chapitres.classes import heros
@@ -19,7 +19,8 @@ init -5 python:
         nbJoursDateNaissance = situation_.GetValCaracInt(temps.Date.DATE) - 365*ageActuel
         situation_[temps.Date.DATE_NAISSANCE] = nbJoursDateNaissance
 
-    def genererLouis(situation, tousLesTraits):
+    def genererLouis(tousLesTraits):
+        global situation_
         # situation[trait.Violence.NOM] = trait.Trait.SEUIL_A_EXTREME
         # situation[trait.Opportunisme.NOM] = trait.Trait.SEUIL_A_EXTREME
         # situation[trait.Assurance.NOM] = trait.Trait.SEUIL_A_EXTREME
@@ -51,31 +52,31 @@ init -5 python:
         # légalisme
         # situation.SetValCarac(heros.Heros.C_LOI_SALIQUE, 1)
 
-        situation[identite.Identite.C_NOM] = heros.Heros.C_NOM
+        situation_[identite.Identite.C_NOM] = heros.Heros.C_NOM
 
         # situation[heros.Heros.CARTE_ACTUELLE] = "bg carte481"
         return
 
-    """
-    def genererParents(situation):
-        pere = pnj_saint_louis.GenererPNJPapa(situation)
-        pere.ageJours = 43 * 12 *30 + 24
-        pere.prenom_ = heros.Heros.C_NOM_CHILDERIC
+    def genererParents():
+        global situation_
+        pere = GenererPNJPapa()
+        pere.ageJours = 36 * 12 *30 + 24
+        pere.prenom_ = heros.Heros.C_NOM_LOUISVIII
         pere.nom_ = ""
         pere.sexeMasculin_ = True
-        pere.portraitStr_ = "images/portraits/childeric.jpg"
-        situation.SetValCarac(pnj.Pnj.C_PERE, pere)
+        pere.portraitStr_ = "images/portraits/louisVIII.jpg"
+        situation_.SetValCarac(pnj.Pnj.C_PERE, pere)
 
-        mere = pnj_saint_louis.GenererPNJMaman(situation)
-        mere.ageJours = 36 * 12 *30 + 297
-        mere.prenom_ = heros.Heros.C_NOM_BASINE
+        mere = GenererPNJMaman()
+        mere.ageJours = 35 * 12 *30 + 297
+        mere.prenom_ = heros.Heros.C_NOM_BLANCHE
         mere.nom_ = ""
         mere.sexeMasculin_ = False
-        mere.portraitStr_ = "images/portraits/basine.jpg"
-        situation.SetValCarac(pnj.Pnj.C_MERE, mere)
-    """
+        mere.portraitStr_ = "images/portraits/blanche_de_castille.jpg"
+        situation_.SetValCarac(pnj.Pnj.C_MERE, mere)
+
 label naissance:
-    $ genererDateNaissance(13) # A FAIRE : décider de l'âge de départ du perso
-    $ genererLouis(situation_, traits_)
-    # $ genererParents(situation_)
+    $ genererDateNaissance(9) # à la mort de Philippe Auguste 14 juillet 1223
+    $ genererLouis(traits_)
+    $ genererParents()
     jump intro

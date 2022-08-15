@@ -52,7 +52,7 @@ init -10 python:
 
         def AffichageArmee(self):
             global debug_
-            # armée de clovis
+            # armée
             str = u""
             val = self.GetValCaracInt(heros.Heros.C_MILITAIRE)
             if val < 0:
@@ -149,7 +149,7 @@ init -10 python:
             récupérer une liste de portraits selon les caracs du perso et en choisir un aléatoirement
             celui est choisi est stocké dans une carac mais en cas de changement important (âge, métier, coterie...) on en recalcule un
             """
-            portr = portrait_saint_louis.PortraitRoiClovis()
+            portr = portrait_saint_louis.PortraitSpe()
             portraitStr = portr.DeterminerPortraitPersoPrincipal(self, True)
             self.SetCarac(portrait.Portrait.C_PORTRAIT, portraitStr)
             return self.GetValCarac(portrait.Portrait.C_PORTRAIT)

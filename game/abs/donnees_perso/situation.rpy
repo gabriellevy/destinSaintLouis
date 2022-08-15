@@ -2,7 +2,6 @@ init -20 python:
     from abs.religions import religion
     from abs.humanite.sante import pbsante
     from abs.univers import temps
-    # from univers.geographie import quartier
     from abs.humanite import portrait
     from abs.humanite import pnj
     from abs.humanite import trait
@@ -600,6 +599,7 @@ init -20 python:
 
         def AvanceDeXJours(self, nbJoursPasses):
             global collectionPnjs_
+            global metiers_
 
             nouvelleDateEnJours = getattr(self, temps.Date.DATE) + nbJoursPasses
             setattr(self, temps.Date.DATE, nouvelleDateEnJours)
@@ -616,7 +616,7 @@ init -20 python:
                 # si le perso a pris une année et que la nouvelle année est un multiple de 5 on lui change de portrait
                 if nbAnneesApres > nbAnneesAvant:
                     if nbAnneesAvant%5 == 0:
-                        pnjObj.MajPortrait(self)
+                        pnjObj.MajPortrait(self, metiers_)
 
             # avancée des caracs de jours qui passent :
             # jours de convalescence :

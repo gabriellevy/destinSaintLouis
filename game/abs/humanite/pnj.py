@@ -53,7 +53,7 @@ class Pnj:
 
         return str
 
-    def MajPortrait(self, situation):
+    def MajPortrait(self, situation, metiers):
         """
         à appeler de temps en temps (changement de boulot, passage de dizaines en âge etc, je sais pas trop
         """
@@ -74,6 +74,8 @@ def GenererPNJ(sexeMasculin, situation, ageJours):
     Génère un PNJ aléatoire avec un ensemble de caracs
     Il pourra ensuite être stocké dans la situation
     """
+    global metiers_
+    
     ageAnnees = ageJours/360
     pnj = Pnj(sexeMasculin, situation)
 
@@ -89,7 +91,7 @@ def GenererPNJ(sexeMasculin, situation, ageJours):
             pnj.traits_[trait.eTrait_] = trait.GetValeurALaNaissance()
             nbTraits = nbTraits - 1
 
-    pnj.MajPortrait(situation)
+    pnj.MajPortrait(situation, metiers_)
 
     # ajouter ce nouveau pnj à la liste des pnjs de l'histoire
     situation.collectionPnjs[pnj.nom_] = pnj

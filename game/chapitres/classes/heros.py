@@ -13,8 +13,8 @@ class Heros:
 
     # personnages
     C_NOM = u"Louis"
-    # C_NOM_BASINE = u"Basine de Thuringe"
-    # C_NOM_CHILDERIC = u"Childéric"
+    C_NOM_BLANCHE = u"Blanche de Castille"
+    C_NOM_LOUISVIII = u"Louis VIII"
 
     # Famille
     # C_FIANCE_CLOTHILDE = u"Fiancé à CLothilde"
