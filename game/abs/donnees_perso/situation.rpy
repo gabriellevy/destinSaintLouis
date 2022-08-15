@@ -202,7 +202,7 @@ init -20 python:
 
                         pass
 
-            # return "" # A FAIRE : fait déonner la sauvegarde : POURQUOI ?
+            # return "" # A FAIRE : fait déconner la sauvegarde : POURQUOI ?
             return super(Situation, self).__getattr__(key)
 
 
@@ -599,6 +599,8 @@ init -20 python:
             return temps.Date(dateEnJours)
 
         def AvanceDeXJours(self, nbJoursPasses):
+            global collectionPnjs_
+
             nouvelleDateEnJours = getattr(self, temps.Date.DATE) + nbJoursPasses
             setattr(self, temps.Date.DATE, nouvelleDateEnJours)
             setattr(self, temps.Date.DATE_ANNEES, self.GetDate(nouvelleDateEnJours).GetNbAnnees())
@@ -607,7 +609,7 @@ init -20 python:
                 setattr(self, temps.Date.AGE_ANNEES, self.AgeEnAnnees())
 
             # application des jours passés aux pnjs :
-            for pnjObj in self.collectionPnjs.values():
+            for pnjObj in collectionPnjs_.values():
                 nbAnneesAvant = pnjObj.nbJours_/360
                 pnjObj.nbJours_ = pnjObj.nbJours_ + nbJoursPasses
                 nbAnneesApres = pnjObj.nbJours_/360

@@ -67,6 +67,8 @@ label init_secondary_data:
         metiers_ = metier.CollectionMetiers()
         # situation_.collectionMetiers = metiers_
         missions_ = missions.Missions()
+
+        collectionPnjs_ = {}
         debug_ = True
         # situation_.debug_ = debug_
     jump naissance

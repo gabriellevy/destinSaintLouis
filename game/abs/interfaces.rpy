@@ -5,7 +5,6 @@ screen valeurs_traits():
     $ strMetier = situation_.AffichageMetier()
     $ strMissions = DescriptionMissionsActives()
     $ strDate = situation_.AffichageDate()
-    $ strIndices = situation_.AffichageIndices()
     frame:
         xpos 5 ypos 5
         vbox:
@@ -18,7 +17,6 @@ screen valeurs_traits():
             elif interfaceMode_ == 1: # données d'enquête ??
                 text _(u"[strDate]")
                 text _(u"[strMissions]")
-                text _(u"[strIndices]")
             elif interfaceMode_ == 2: # inventaire
                 hbox:
                     for i in situation_.inventaire_:

@@ -160,7 +160,7 @@ init -10 python:
             # père
             str = u""
             pere = self.GetValCarac(pnj.Pnj.C_PERE)
-            if isinstance(pere, pnj_saint_louis.PnjRoiClovis) :
+            if isinstance(pere, pnj_saint_louis.PnjSaintLouis) :
                 return pere.portraitStr_
             return ""
 
@@ -168,7 +168,7 @@ init -10 python:
             # mère
             str = u""
             mere = self.GetValCarac(pnj.Pnj.C_MERE)
-            if isinstance(mere, pnj_saint_louis.PnjRoiClovis) :
+            if isinstance(mere, pnj_saint_louis.PnjSaintLouis) :
                 return mere.portraitStr_
             return ""
 
@@ -176,7 +176,7 @@ init -10 python:
             # père
             str = u""
             pere = self.GetValCarac(pnj.Pnj.C_PERE)
-            if isinstance(pere, pnj_saint_louis.PnjRoiClovis) :
+            if isinstance(pere, pnj_saint_louis.PnjSaintLouis) :
                 str = u"{}".format(pere)
             return str
 
@@ -184,7 +184,7 @@ init -10 python:
             # mère
             str = u""
             mere = self.GetValCarac(pnj.Pnj.C_MERE)
-            if isinstance(mere, pnj_saint_louis.PnjRoiClovis) :
+            if isinstance(mere, pnj_saint_louis.PnjSaintLouis) :
                 str = u"{}".format(mere)
             return str
 
