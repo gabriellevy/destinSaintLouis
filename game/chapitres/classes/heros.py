@@ -2,6 +2,7 @@ class Heros:
     # caracs personnelles spécifiques de Saint Louis
     C_GLOIRE = u"Gloire" # plus elle est élevée moins il y a de chances d'usurpation. 5 = digne de Clotilde (pour l'instant)
     C_DIPLOMATIE = u"Diplomatie" # statut et fiabilité de Saint Louis
+    C_SAINTETE = u"Sainteté"
 
     # et de son royaume mises en place en début de partie
     C_MILITAIRE = u"Puissance de l'Armée"

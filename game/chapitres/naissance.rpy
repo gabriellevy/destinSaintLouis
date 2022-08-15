@@ -41,7 +41,7 @@ init -5 python:
         # situation[metier.Chasseur.NOM] = trait.Trait.SEUIL_A
 
         # caracs spécifiques
-        # situation[heros.Heros.C_CHRISTIANISME] = 0
+        situation_[heros.Heros.C_SAINTETE] = 0
         # situation[heros.Heros.C_MILITAIRE] = 0
         # situation[heros.Heros.C_DIPLOMATIE] = 0
         # situation.SetValCarac(heros.Heros.C_GLOIRE, 0)
@@ -78,5 +78,5 @@ init -5 python:
 label naissance:
     $ genererDateNaissance(9) # à la mort de Philippe Auguste 14 juillet 1223
     $ genererLouis(traits_)
-    $ genererParents()
+    # $ genererParents() # A FAIRE : si on décommente cette partie la sauvegarde ne fonctionne plus, trouver pourquoi (probablement parce que PNJ n'est pas un type sauvable picckle truc)
     jump intro

@@ -10,3 +10,4 @@ game/cache/shaders.txt
 errors.txt
 traceback.txt
 *.rpyc
+game/saves/1-1-LT1.save
