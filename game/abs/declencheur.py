@@ -53,11 +53,11 @@ class DeclencheurU(Declencheur):
 
     def __init__(self, aproba, labelGoTo):
         """
-        identique à la version historique amis ne se déclenche qu'une fois maximum quoiqu'il arrive
+        identique à la version historique mais ne se déclenche qu'une fois maximum quoiqu'il arrive
         """
         Declencheur.__init__(self, aproba, labelGoTo)
 
-    def executer(self):
+    def executer(self, situation):
         # cette exécution ne doit plus jamais arriver : on lui met une proba à 0 :
         # self.proba_ = proba.Proba(0)
         if self.selecteur_ is not None:

@@ -80,7 +80,7 @@ label debut_cycle:
 
 label fin_cycle:
     # "Fin d'un cycle."
-    jump mort # tmp test
+    # jump mort # tmp test
 
     $ situation_.TourSuivant()
 
@@ -88,6 +88,7 @@ label fin_cycle:
         jump debut_cycle
 
 label mort:
+    play music roi_mort noloop
     $ saintete = situation_.GetValCaracInt(heros.Heros.C_SAINTETE)
     $ print("Sainteté : {}".format(saintete))
     if saintete >= 500:

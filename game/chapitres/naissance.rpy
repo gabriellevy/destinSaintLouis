@@ -36,9 +36,9 @@ init -5 python:
         # situation[metier.Metier.C_METIER] = u"Prince de sang"
 
         # compétences professionnelles
-        # situation[metier.Politique.NOM] = trait.Trait.SEUIL_A
-        # situation[metier.Guerrier.NOM] = trait.Trait.SEUIL_A
-        # situation[metier.Chasseur.NOM] = trait.Trait.SEUIL_A
+        situation_[metier.Politique.NOM] = trait.Trait.SEUIL_A
+        situation_[metier.Guerrier.NOM] = trait.Trait.SEUIL_A
+        situation_[metier.Chasseur.NOM] = trait.Trait.SEUIL_A
 
         # caracs spécifiques
         situation_[heros.Heros.C_SAINTETE] = 0
