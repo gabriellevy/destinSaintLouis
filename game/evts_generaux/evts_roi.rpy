@@ -178,7 +178,7 @@ label gestionPillage:
 label comtCritique:
     scene bg cours_merovingienne
     with dissolve
-    $ nomComte = gaulois_.CreerPrenom(True)
+    $ nomComte = francs_.CreerPrenom(True)
     "Le comte [nomComte] à votre service se comporte paraît-til comme un brigand. Il vole et frappe ses sujets et les plaintes s'accumulent."
     "Il est par contre d'une fidélité à toute épreuve envers vous et fait rentrer les impôts très efficacement."
     menu:
@@ -213,8 +213,8 @@ label nommageComte:
     scene bg cours_merovingienne
     with dissolve
     $ nomComte1 = francs_.CreerPrenom(True)
-    $ nomComte2 = gaulois_.CreerPrenom(True)
-    $ nomComte3 = gaulois_.CreerPrenom(True)
+    $ nomComte2 = francs_.CreerPrenom(True)
+    $ nomComte3 = francs_.CreerPrenom(True)
     $ nomComte4 = francs_.CreerPrenom(True)
     "Le comte est un fonctionnaire de haut rang responsable entre autres de la collecte des impôts."
     menu:

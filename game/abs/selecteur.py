@@ -35,7 +35,7 @@ class Selecteur:
                     if proba > 0:
                         probaTmp = probaTmp + proba
                         if resProba <= probaTmp:
-                            return declencheur.executer()
+                            return declencheur.executer(situation)
 
         # si pas de proba absolue validée, on passe aux relatives :
         # probas relatives

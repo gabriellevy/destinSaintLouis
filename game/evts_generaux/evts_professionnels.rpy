@@ -77,7 +77,7 @@ label entrainementChasse:
         "Aujourd'hui vous avez tué un buffle massif après uen chasse mémorable dans les vosges."
     elif niveauExpertise == 5:
         $ situation_.SetValCarac("entrainementChasseNiv", 6)
-        $ nomCourtisan = gaulois_.CreerPrenom(True)
+        $ nomCourtisan = francs_.CreerPrenom(True)
         "Un courtisan nommé [nomCourtisan] venant de l'est des royaumes francs vous a offert un arc remarquable fait de plusieurs matériaux avec des extrémités en os."
         "Il appelle cela un 'arc rélexe' et affirme que c'est l'arc de prédilection des huns et des avars."
         "Il est bien plus puissant que les arcs francs. Vous récompensez chaudement [nomCourtisan] et allez immédiatement vous entraîner pour la prochaine chasse."

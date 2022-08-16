@@ -88,13 +88,8 @@ label selecteurDEvenementVide:
 
 label evtRien1:
     with Dissolve(.5)
-    $ romain = random.randint(0,1)
-    $ nomPerso = gaulois_.CreerPrenom(True)
-    $ nomFaction = "gaulois"
-    if romain == 0:
-        $ nomPerso = romains_.CreerPrenom(True)
-        $ nomFaction = "romain"
-    "[nomPerso], un riche [nomFaction] vient de mourir. Très pieux, il fait don de l'essentiel de sa fortune à l'église. Il a aussi affranchi une grande partie de ses esclaves."
+    $ nomPerso = francs_.CreerPrenom(True)
+    "[nomPerso], un riche propriétaire vient de mourir. Très pieux, il fait don de l'essentiel de sa fortune à l'église."
     jump fin_cycle
 
 label evtRien2:
