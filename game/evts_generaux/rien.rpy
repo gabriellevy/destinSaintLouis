@@ -20,7 +20,7 @@ init -5 python:
         evtsVides_ = [
         "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6", "evtRien7",
         "evtRien8", "evtRien9", "evtRien10", "evtRien11", "evtRien12",
-        "evtRien13", "evtRien14", "evtRien15", "evtRien16", "evtRien17",
+        "evtRien13",
         "evtRien18", "evtRien19", "evtRien20"
         ]
         scenesParDefaut = []
@@ -54,7 +54,7 @@ init -5 python:
             evtsVides_ = ["evtRien1", "evtRien2" ]
 
         if len(scenesParDefaut) == 0:
-            sceneParDefaut = "bg cours_merovingienne"
+            sceneParDefaut = "bg priere"
 
         # ajoute une musique à la file au hasard :
         if len(musiquesAEnquiller) != 0:
@@ -159,31 +159,6 @@ label evtRien12:
 label evtRien13:
     with Dissolve(.5)
     "Pour vous distraire et vous détendre vous vous prenez l'habitude de jouer aux osselets avec votre famille et vos amis."
-    jump fin_cycle
-
-label evtRien14:
-    scene bg ludus
-    with Dissolve(.5)
-    "Après les avoir méprisés un temps les francs ont commencé à apprécier les multiples jeux des romains. Vous avez un faible pour le ludus duodecim scriptorum."
-    jump fin_cycle
-
-label evtRien15:
-    with Dissolve(.5)
-    $ nomEsclave = gaulois_.CreerPrenom(True)
-    "Un esclave des cuisines nommé [nomEsclave] s'est enfui et a été rattrapé pour la 3ème fois !"
-    "Le chef des cuisines a fini par perdre patience et lui a coupé l'oreille."
-    jump fin_cycle
-
-label evtRien16:
-    with Dissolve(.5)
-    $ nom = francs_.CreerPrenom(True)
-    "Comme tous les mois la justice populaire franque est rendue sur le marlberg (tumulus)."
-    "[nom], accusé et condamné pour vol, a refusé la sentence et s'est enfui. Il a été maudit par le conseil et tout le monde a maintenant le droit et le devoir de le poursuivre et de planter sa tête sur un pieu."
-    jump fin_cycle
-
-label evtRien17:
-    with Dissolve(.5)
-    "Les moulins à eau se multiplient dans vos campagnes. Cet édifice ingénieux utilise la force du courant pour actionner la meule."
     jump fin_cycle
 
 label evtRien18:
