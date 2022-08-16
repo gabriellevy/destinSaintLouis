@@ -48,6 +48,7 @@ init -1 python:
     AjouterEvtsDiplomatie()
     AjouterEvtsHistoire()
     AjouterEvtsFamille()
+    AjouterEvtsMongols()
 
 # Le jeu commence ici
 label start:

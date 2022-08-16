@@ -9,11 +9,11 @@ init -5 python:
     from abs.humanite import metier
     from chapitres.classes import heros
 
-    fideliteGauleMoinsQue0 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 0, condition.Condition.INFERIEUR)
-    fideliteGauleMoinsQue2 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 2, condition.Condition.INFERIEUR)
-    fideliteGaulePlusQue0 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 0, condition.Condition.SUPERIEUR)
-    fideliteGaulePlusQue2 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 2, condition.Condition.SUPERIEUR)
-    fideliteGaulePlusQue3 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 3, condition.Condition.SUPERIEUR)
+    fidelitePeupleMoinsQue0 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 0, condition.Condition.INFERIEUR)
+    fidelitePeupleMoinsQue2 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 2, condition.Condition.INFERIEUR)
+    fidelitePeuplePlusQue0 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 0, condition.Condition.SUPERIEUR)
+    fidelitePeuplePlusQue2 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 2, condition.Condition.SUPERIEUR)
+    fidelitePeuplePlusQue3 = condition.Condition(heros.Heros.C_FIDELITE_PEUPLE, 3, condition.Condition.SUPERIEUR)
     richessePlusQue0 = condition.Condition(trait.Richesse.NOM, 0, condition.Condition.SUPERIEUR)
     armeeMoinsQue2 = condition.Condition(heros.Heros.C_MILITAIRE, 2, condition.Condition.INFERIEUR)
     armeeMoinsQue5 = condition.Condition(heros.Heros.C_MILITAIRE, 2, condition.Condition.INFERIEUR)
@@ -52,12 +52,12 @@ init -5 python:
         # revolte_impots
         revolte_impots = declencheur.Declencheur(proba.Proba(0.04, True), "revolte_impots")
         revolte_impots.AjouterCondition(estRoi)
-        revolte_impots.AjouterCondition(fideliteGauleMoinsQue0)
+        revolte_impots.AjouterCondition(fidelitePeupleMoinsQue0)
         selecteur_.ajouterDeclencheur(revolte_impots)
         # rentree_dimpots
         rentree_dimpots = declencheur.Declencheur(proba.Proba(0.04, True), "rentree_dimpots")
         rentree_dimpots.AjouterCondition(estRoi)
-        rentree_dimpots.AjouterCondition(fideliteGaulePlusQue0)
+        rentree_dimpots.AjouterCondition(fidelitePeuplePlusQue0)
         selecteur_.ajouterDeclencheur(rentree_dimpots)
 
 label rentree_dimpots:

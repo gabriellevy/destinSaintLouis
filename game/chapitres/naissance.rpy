@@ -32,8 +32,9 @@ init -5 python:
         # situation[trait.Rancune.NOM] = trait.Trait.SEUIL_A_EXTREME
         # situation[trait.Franchise.NOM] = trait.Trait.SEUIL_A_PAS
         # situation[trait.Altruisme.NOM] = trait.Trait.SEUIL_A_PAS
+        situation_[trait.Richesse.NOM] = trait.Trait.SEUIL_A_PAS
 
-        # situation[metier.Metier.C_METIER] = u"Prince de sang"
+        situation_[metier.Metier.C_METIER] = u"Prince"
 
         # compétences professionnelles
         situation_[metier.Politique.NOM] = trait.Trait.SEUIL_A
