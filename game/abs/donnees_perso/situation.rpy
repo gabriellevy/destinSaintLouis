@@ -3,7 +3,6 @@ init -20 python:
     from abs.humanite.sante import pbsante
     from abs.univers import temps
     from abs.humanite import portrait
-    from abs.humanite import pnj
     from abs.humanite import trait
     from abs.humanite import identite
     from abs.affichage import affichagePortrait
@@ -83,15 +82,11 @@ init -20 python:
                 # else default value
 
             for key, value in kwargs.items():
-
                 if key not in self.__dict__['_store']:
-
                     setattr(self, key, value)
 
             for key, value in type(self).STAT_DEFAULTS.items():
-
                 if key not in self.__dict__['_store']:
-
                     setattr(self, key, value)
 
         # def __init__(self, nbJoursDate):
@@ -107,9 +102,9 @@ init -20 python:
             # self.collectionMaladies = None
             # self.collectionQuartiers = None
             # self.collectionPnjs = {}
-            self.inventaire_ = []
+            # self.inventaire_ = []
 
-            self.run_optional_method( '__post_init__', id, **kwargs )
+            # self.run_optional_method( '__post_init__', id, **kwargs )
 
 
         def run_optional_method(self,
@@ -156,49 +151,34 @@ init -20 python:
 
 
         def __setattr__(self, key, value):
-
             value = self.get_validated_value(key, value)
-
             self.__dict__[key] = value
 
             # Anything not recognized as an attribute of object
             # is placed into the store
-
             if key not in dir(object):
-
                 self.__dict__['_store'][key] = value
 
 
         def __getattr__(self, key):
-
             try:
-
                 return self.__dict__['_store'][key]
-
             except:
-
                 if key in self.__dict__:
-
                     return self.__dict__[key]
-
                 else:
-
                     try:
-
                         # try the character object
                         value = getattr(
                                     getattr( character, self._id ),
                                              key )
-
                         if key != 'name':
-
                             return value
 
                         # substitute the name (for interpolation/translations)
                         return renpy.substitutions.substitute(value)[0]
 
                     except:
-
                         pass
 
             # return "" # A FAIRE : fait déconner la sauvegarde : POURQUOI ?

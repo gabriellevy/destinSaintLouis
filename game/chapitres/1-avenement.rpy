@@ -6,7 +6,6 @@ init -5 python:
     from abs import proba
     from abs import condition
     from abs.humanite import trait
-    from abs.humanite import pnj
     from abs.humanite import metier
     from abs.univers import temps
     # from geographie import quartier
@@ -28,7 +27,7 @@ label avenement:
     play music roi_mort noloop
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits
-    $ papa = situation_.GetValCarac(pnj.Pnj.C_PERE)
+    $ papa = situation_.GetValCarac(Pnj.C_PERE)
     $ papa.Tuer()
     # enterrement de Louis VIII
     "Votre glorieux père Louis vient de mourir."

@@ -3,9 +3,7 @@ init -10 python:
     from chapitres.classes import heros
     from spe.humanite import portrait_saint_louis
     from abs.humanite import portrait
-    from spe.humanite import pnj_saint_louis
     from abs.humanite import metier
-    from abs.humanite import pnj
     from abs.humanite import trait
     import random
 
@@ -160,7 +158,7 @@ init -10 python:
             # père
             str = u""
             pere = self.GetValCarac(pnj.Pnj.C_PERE)
-            if isinstance(pere, pnj_saint_louis.PnjSaintLouis) :
+            if isinstance(pere, PnjSaintLouis) :
                 return pere.portraitStr_
             return ""
 
@@ -168,7 +166,7 @@ init -10 python:
             # mère
             str = u""
             mere = self.GetValCarac(pnj.Pnj.C_MERE)
-            if isinstance(mere, pnj_saint_louis.PnjSaintLouis) :
+            if isinstance(mere, PnjSaintLouis) :
                 return mere.portraitStr_
             return ""
 
@@ -176,7 +174,7 @@ init -10 python:
             # père
             str = u""
             pere = self.GetValCarac(pnj.Pnj.C_PERE)
-            if isinstance(pere, pnj_saint_louis.PnjSaintLouis) :
+            if isinstance(pere, PnjSaintLouis) :
                 str = u"{}".format(pere)
             return str
 
@@ -184,7 +182,7 @@ init -10 python:
             # mère
             str = u""
             mere = self.GetValCarac(pnj.Pnj.C_MERE)
-            if isinstance(mere, pnj_saint_louis.PnjSaintLouis) :
+            if isinstance(mere, PnjSaintLouis) :
                 str = u"{}".format(mere)
             return str
 

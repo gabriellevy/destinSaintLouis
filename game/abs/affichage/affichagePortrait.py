@@ -1,4 +1,3 @@
-from abs.humanite import pnj
 from abs.humanite.amour import relationAmoureuse
 
 class AffichagePortrait:
