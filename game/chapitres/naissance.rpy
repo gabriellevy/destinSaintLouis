@@ -60,20 +60,20 @@ init -5 python:
     def genererParents():
         global situation_
         pere = GenererPNJPapa()
-        # pere.ageJours = 36 * 12 *30 + 24
-        # pere.prenom_ = heros.Heros.C_NOM_LOUISVIII
-        # pere.nom_ = ""
-        # pere.sexeMasculin_ = True
-        # pere.portraitStr_ = "images/portraits/louisVIII.jpg"
+        pere.ageJours = 36 * 12 *30 + 24
+        pere.prenom_ = heros.Heros.C_NOM_LOUISVIII
+        pere.nom_ = ""
+        pere.sexeMasculin_ = True
+        pere.portraitStr_ = "images/portraits/louisVIII.jpg"
         situation_.SetValCarac(C_PERE, pere)
 
-        # mere = GenererPNJMaman()
-        # mere.ageJours = 35 * 12 *30 + 297
-        # mere.prenom_ = heros.Heros.C_NOM_BLANCHE
-        # mere.nom_ = ""
-        # mere.sexeMasculin_ = False
-        # mere.portraitStr_ = "images/portraits/blanche_de_castille.jpg"
-        # situation_.SetValCarac(C_MERE, mere)
+        mere = GenererPNJMaman()
+        mere.ageJours = 35 * 12 *30 + 297
+        mere.prenom_ = heros.Heros.C_NOM_BLANCHE
+        mere.nom_ = ""
+        mere.sexeMasculin_ = False
+        mere.portraitStr_ = "images/portraits/blanche_de_castille.jpg"
+        situation_.SetValCarac(C_MERE, mere)
 
 label naissance:
     $ genererDateNaissance(9) # à la mort de Philippe Auguste 14 juillet 1223

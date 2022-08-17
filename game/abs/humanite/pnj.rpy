@@ -28,8 +28,6 @@ init -19 python:
 
             @param **kwargs: Setup values that are not default
             """
-            # self.__dict__['_nom_'] = ""
-            #self.CreerNomNeutre() # self.nom_
             id = "id temp"
             if not isinstance(id, basestring):
                 id = str(id) # should raise if not stringable
@@ -54,12 +52,14 @@ init -19 python:
                 if key not in self.__dict__['_store']:
                     setattr(self, key, value)
 
-            # self.sexeMasculin_ = sexeMasculin
-            # self.nbJours_ = -1
-            # self.traits_ = {} # dico contenant une liste de traits comme clés et leur valeur comme valeur
-            # self.portraitStr_ = ""
-            # self.relationAmoureuse_ = None
-            # self.vivant_ = True
+            # self.__dict__['_nom_'] = ""
+            self.CreerNomNeutre() # self.nom_
+            self.sexeMasculin_ = sexeMasculin
+            self.nbJours_ = -1
+            self.traits_ = {} # dico contenant une liste de traits comme clés et leur valeur comme valeur
+            self.portraitStr_ = ""
+            self.relationAmoureuse_ = None
+            self.vivant_ = True
 
         def Tuer(self):
             self.vivant_ = False

@@ -20,9 +20,9 @@ init -18 python:
 
         def __init__(self, sexeMasculin, **kwargs):
             Pnj.__init__(self, sexeMasculin, **kwargs)
-            # self.CreerPrenomNeutre(sexeMasculin) # self.prenom_
-            # self.nbJours_ = -1
-            # self.metier_ = ""
+            self.CreerPrenomNeutre(sexeMasculin) # self.prenom_
+            self.nbJours_ = -1
+            self.metier_ = ""
 
         def MajPortrait(self, situation, metiers):
             """
@@ -92,7 +92,7 @@ init -18 python:
         nbJoursVecusPerso = joursDateActuelle - joursDateNaissanceHeros
         ageJours = (30 + random.randint(0, 35)) * 12 *30 # âge 29 minimum (14 + 15 de l'âge du perso joué)
         pnj = GenererPNJ(True, ageJours)
-        # pnj.metier_ = ""
+        pnj.metier_ = ""
         return pnj
 
     def GenererPNJMaman():
@@ -101,6 +101,6 @@ init -18 python:
         joursDateNaissanceHeros = situation_.GetValCarac(temps.Date.DATE_NAISSANCE)
         nbJoursVecusPerso = joursDateActuelle - joursDateNaissanceHeros
         ageJours = (30 + random.randint(0, 25)) * 12 *30 # âge 29 minimum (14 + 15 de l'âge du perso joué)
-        # pnj = GenererPNJ(False, ageJours)
+        pnj = GenererPNJ(False, ageJours)
         pnj.metier_ = ""
         return pnj

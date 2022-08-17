@@ -27,7 +27,7 @@ label avenement:
     play music roi_mort noloop
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits
-    $ papa = situation_.GetValCarac(Pnj.C_PERE)
+    $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
     # enterrement de Louis VIII
     "Votre glorieux père Louis vient de mourir."
