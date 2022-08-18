@@ -7,6 +7,8 @@ class Heros:
     # et de son royaume mises en place en début de partie
     C_MILITAIRE = u"Puissance de l'Armée"
     C_FIDELITE_PEUPLE = u"Fidélité du peuple" # plus c'est élevé plus les paysans sont fidèles à Louis
+    C_FIDELITE_NOBLES = u"Fidélité des nobles"
+    C_FIDELITE_ARMEE = u"Fidélité de l'armée"
 
     # événements spéciaux
     # C_VASE_SOISSONS = u"Vase de soissons" # 1 si l'histoire réelle est bien suivie

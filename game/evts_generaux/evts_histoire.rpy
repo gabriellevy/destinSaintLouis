@@ -20,21 +20,21 @@ init -5 python:
         selecteur_.ajouterDeclencheur(ordalie)
 
 label ordalie:
-    "L'ordalie, ou jugement de Dieu, a été interdite par le 4ème concile de Latran en 1215."
-    "Il est néanmoins très difficile de l'éradiquer. Les brutales épreuves par le fer, l'eau et le fer rouge s'estompent."
-    "Mais le jugement de Dieu par combat est encore très populaire parmi les nombreux guerriers du royaume et malgré les ravages qu'il cause, vous ne parvenez pas à l'éradiquer."
     menu:
         "tmp ordalie"
         "ok":
             pass
+    "L'ordalie, ou jugement de Dieu, a été interdite par le 4ème concile de Latran en 1215."
+    "Il est néanmoins très difficile de l'éradiquer. Les brutales épreuves par le fer, l'eau et le fer rouge s'estompent."
+    "Mais le jugement de Dieu par combat est encore très populaire parmi les nombreux guerriers du royaume et malgré les ravages qu'il cause, vous ne parvenez pas à l'éradiquer."
     jump fin_cycle
 
 label ecuDOr:
     scene bg ecu
-    "Votre royaume est plus riche que jamais. Vous pouvez enfin accomplir un vieux rêve des rois de France."
-    "La monnaie d'or n'était plus frappée depuis Charlemagne. Vous la rétablissez enfin en Occident en créant l'Écu d'or."
     menu:
         "tmp ecuDOr"
         "ok":
             pass
+    "Votre royaume est plus riche que jamais. Vous pouvez enfin accomplir un vieux rêve des rois de France."
+    "La monnaie d'or n'était plus frappée depuis Charlemagne. Vous la rétablissez enfin en Occident en créant l'Écu d'or."
     jump fin_cycle

@@ -108,9 +108,9 @@ init -10 python:
             return u""
 
         def AffichageUsurpation(self):
-            val = self.GetValCarac(heros.Heros.C_USURPATION)
+            val = self.GetValCarac(heros.Heros.C_FIDELITE_NOBLES)
             if self.debug_:
-                return u"Risques d'usurpation : {}".format(val)
+                return u"Les nobles sont furieux. Risques d'usurpation : {}".format(val)
             return u""
 
         def AffichageRichesse(self):

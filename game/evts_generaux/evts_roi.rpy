@@ -138,14 +138,15 @@ label impots:
                 "Grâce à vos efforts en leur faveur les galloromains vous sont favorables et suivent vos lois. Les impôts rentrent."
                 $ AjouterACarac(trait.Richesse.NOM, 1)
             else:
-                "Les gaulois sont sournois et désobéissants. Malgré vos efforts les rendements des impôts sont médiocres."
+                "Les paysans sont sournois et désobéissants. Malgré vos efforts les rendements des impôts sont médiocres."
                 menu:
                     "Voulez vous autoriser vos soldats à piller quelques villes pour leur apprendre à obéir ?"
                     "Oui":
-                        "Les pillages vous rapportent et défoulent vos soldats mais les gaulois vous détestent encore plus."
+                        "Les pillages vous rapportent et défoulent vos soldats mais le peuple vous déteste encore plus."
                         $ AjouterACarac(trait.Richesse.NOM, 1)
                         $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
-                        $ RetirerACarac(heros.Heros.C_USURPATION, 1)
+                        $ RetirerACarac(heros.Heros.C_SAINTETE, 5)
+                        $ AjouterACarac(heros.Heros.C_FIDELITE_ARMEE, 1)
                     "Non":
                         pass
     jump fin_cycle
@@ -158,12 +159,12 @@ label gestionPillage:
     menu:
         "Interdire le pillage sous peine de mort":
             "Les guerriers prennent très mal cet affront à la coutume. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
-            $ AjouterACarac(heros.Heros.C_USURPATION, 3)
+            $ RetirerACarac(heros.Heros.C_FIDELITE_ARMEE, 2)
             $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
             jump fin_cycle
         "Réprimander les soldats":
             "Les guerriers prennent mal la réprimande. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
-            $ AjouterACarac(heros.Heros.C_USURPATION, 1)
+            $ RetirerACarac(heros.Heros.C_FIDELITE_ARMEE, 1)
             $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
             jump fin_cycle
         "Le renvoyer sèchement. Vae Victis !":
@@ -191,7 +192,7 @@ label comtCritique:
         "Le faire exécuter":
             "Le peuple est satisfait de voir son tourmenteur mort, mais les autres comtes sont terrifiés de voir que la fidélité envers vous ne leur garantit pas votre clémence."
             $ RetirerACarac(trait.Richesse.NOM, 1)
-            $ AjouterACarac(heros.Heros.C_USURPATION, 1)
+            $ RetirerACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
             $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
             jump fin_cycle
 
@@ -216,21 +217,23 @@ label nommageComte:
     $ nomComte2 = francs_.CreerPrenom(True)
     $ nomComte3 = francs_.CreerPrenom(True)
     $ nomComte4 = francs_.CreerPrenom(True)
-    "Le comte est un fonctionnaire de haut rang responsable entre autres de la collecte des impôts."
+    "Le bailli est un fonctionnaire de haut rang responsable entre autres de la collecte des impôts."
     menu:
-        "[nomComte1], un franc juste et intransigeant":
-            $ RetirerACarac(heros.Heros.C_USURPATION, 1)
+        "Qui allez vous nommer ?"
+        "[nomComte1], un noble juste et intransigeant":
+            $ AjouterACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
             jump fin_cycle
-        "[nomComte2], un gaulois aimé du peuple":
+        "[nomComte2], un bourgeois notable respecté":
             $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
             jump fin_cycle
-        "[nomComte3], un affranchi malin et dévoué qui saura faire rentrer les impôts":
+        "[nomComte3], un roturier malin et dévoué qui saura faire rentrer les impôts":
             "[nomComte3] est en effet doué et efficace mais il se fait vite détester par tout le royaume."
             $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
-            $ AjouterACarac(heros.Heros.C_USURPATION, 1)
+            $ RetirerACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
             $ AjouterACarac(trait.Richesse.NOM, 1)
             jump fin_cycle
         "[nomComte4], un ancien officier, spécialiste du recrutement":
             $ AjouterACarac(heros.Heros.C_MILITAIRE, 1)
+            $ AjouterACarac(heros.Heros.C_FIDELITE_ARMEE, 1)
             jump fin_cycle
     jump fin_cycle
