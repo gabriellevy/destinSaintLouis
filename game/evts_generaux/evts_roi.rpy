@@ -99,12 +99,12 @@ label revolte_impots:
     jump fin_cycle
 
 label corruption:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ testImpots = testDeCarac.TestDeCarac([metier.Politique.NOM, heros.Heros.C_FIDELITE_PEUPLE], 5, situation_)
     menu:
         " "
-        "Administrer les Gaules [testImpots.affichage_]":
+        "Administrer le pays [testImpots.affichage_]":
             $ reussi = testImpots.TesterDifficulte(situation_)
             if reussi:
                 "Votre administration est fiable et la corruption très faible."
@@ -114,7 +114,7 @@ label corruption:
     jump fin_cycle
 
 label recrutement:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     menu:
         "Vous êtes assez riche pour renforcer vos armées avec des mercenaires si vous le souhaitez."
@@ -127,7 +127,7 @@ label recrutement:
     jump fin_cycle
 
 label impots:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ testImpots = testDeCarac.TestDeCarac([metier.Politique.NOM, heros.Heros.C_FIDELITE_PEUPLE], 5, situation_)
     menu:
@@ -151,7 +151,7 @@ label impots:
     jump fin_cycle
 
 label gestionPillage:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ nomSenateur = francss_.CreerPrenom(True)
     "Le sénateur gallo-romain [nomSenateur] vient à vous se plaindre humblement des pillages causés par vos guerriers et vous demande d'y mettre un terme."
@@ -176,7 +176,7 @@ label gestionPillage:
     jump fin_cycle
 
 label comtCritique:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ nomComte = francs_.CreerPrenom(True)
     "Le comte [nomComte] à votre service se comporte paraît-til comme un brigand. Il vole et frappe ses sujets et les plaintes s'accumulent."
@@ -210,7 +210,7 @@ label comtCritique:
 
 
 label nommageComte:
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ nomComte1 = francs_.CreerPrenom(True)
     $ nomComte2 = francs_.CreerPrenom(True)

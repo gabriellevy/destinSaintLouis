@@ -12,7 +12,22 @@ init -5 python:
         global selecteur_
         # Écu d'or
         ecuDOr = dec_histo.DecHistoU(proba.Proba(0.3, True), "ecuDOr", 1226)
+        ecuDOr.AjouterCondition(estRoi)
         selecteur_.ajouterDeclencheur(ecuDOr)
+        # fin de l'ordalie
+        ordalie = dec_histo.DecHistoU(proba.Proba(0.1, True), "ordalie", 0)
+        ordalie.AjouterCondition(estRoi)
+        selecteur_.ajouterDeclencheur(ordalie)
+
+label ordalie:
+    "L'ordalie, ou jugement de Dieu, a été interdite par le 4ème concile de Latran en 1215."
+    "Il est néanmoins très difficile de l'éradiquer. Les brutales épreuves par le fer, l'eau et le fer rouge s'estompent."
+    "Mais le jugement de Dieu par combat est encore très populaire parmi les nombreux guerriers du royaume et malgré les ravages qu'il cause, vous ne parvenez pas à l'éradiquer."
+    menu:
+        "tmp ordalie"
+        "ok":
+            pass
+    jump fin_cycle
 
 label ecuDOr:
     scene bg ecu

@@ -89,7 +89,7 @@ label entrainementChasse:
 
 label entrainementPolitique:
     # s'entraîne à la politique
-    scene bg cours_merovingienne
+    scene bg cours
     with dissolve
     $ niveauExpertise = situation_.GetValCaracInt("entrainementPolitiqueNiv")
     if niveauExpertise == 0:
