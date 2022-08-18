@@ -24,6 +24,10 @@ init -5 python:
 label avenement:
     scene bg priere
     with dissolve
+    menu:
+        "tmp avenement"
+        "ok":
+            pass
     play music roi_mort noloop
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits

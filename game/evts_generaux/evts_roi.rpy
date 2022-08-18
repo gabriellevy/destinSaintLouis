@@ -131,11 +131,11 @@ label impots:
     with dissolve
     $ testImpots = testDeCarac.TestDeCarac([metier.Politique.NOM, heros.Heros.C_FIDELITE_PEUPLE], 5, situation_)
     menu:
-        "Allez vous réussir à pousser les gaulois à vous payer des impôts ?"
+        "Allez vous réussir à pousser les paysans à vous payer des impôts ?"
         "[testImpots.affichage_]":
             $ reussi = testImpots.TesterDifficulte(situation_)
             if reussi:
-                "Grâce à vos efforts en leur faveur les galloromains vous sont favorables et suivent vos lois. Les impôts rentrent."
+                "Grâce à vos efforts en sa faveur le peuple vous est favorable et suit vos lois. Les impôts rentrent."
                 $ AjouterACarac(trait.Richesse.NOM, 1)
             else:
                 "Les paysans sont sournois et désobéissants. Malgré vos efforts les rendements des impôts sont médiocres."

@@ -30,11 +30,6 @@ label ordalie:
     jump fin_cycle
 
 label ecuDOr:
-    scene bg ecu
-    menu:
-        "tmp ecuDOr"
-        "ok":
-            pass
     "Votre royaume est plus riche que jamais. Vous pouvez enfin accomplir un vieux rêve des rois de France."
     "La monnaie d'or n'était plus frappée depuis Charlemagne. Vous la rétablissez enfin en Occident en créant l'Écu d'or."
     jump fin_cycle

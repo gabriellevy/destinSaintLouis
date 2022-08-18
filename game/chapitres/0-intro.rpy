@@ -1,7 +1,7 @@
 
 
 label intro:
-    scene bg francs
+    scene bg armee_franque
     with dissolve
     show screen valeurs_traits
     "A FAIRE : intro Saint Louis"
