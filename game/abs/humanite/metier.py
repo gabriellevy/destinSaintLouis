@@ -169,7 +169,7 @@ class Robotique(Metier):
         return poids
 
 class Roi(Metier):
-    NOM = u"Roi des francs"
+    NOM = u"Roi de France"
     def __init__(self):
         self.nom_ = Roi.NOM
 

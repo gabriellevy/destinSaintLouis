@@ -24,17 +24,13 @@ init -5 python:
 label avenement:
     scene bg priere
     with dissolve
-    menu:
-        "tmp avenement"
-        "ok":
-            pass
     play music roi_mort noloop
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits
     $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
     # enterrement de Louis VIII
-    "Votre glorieux père Louis vient de mourir."
+    "Votre glorieux père Louis vient de mourir." # Louis VII le lion
     "A FAIRE : avènement"
     # avènement => maman régente
 

@@ -20,10 +20,6 @@ init -5 python:
         selecteur_.ajouterDeclencheur(ordalie)
 
 label ordalie:
-    menu:
-        "tmp ordalie"
-        "ok":
-            pass
     "L'ordalie, ou jugement de Dieu, a été interdite par le 4ème concile de Latran en 1215."
     "Il est néanmoins très difficile de l'éradiquer. Les brutales épreuves par le fer, l'eau et le fer rouge s'estompent."
     "Mais le jugement de Dieu par combat est encore très populaire parmi les nombreux guerriers du royaume et malgré les ravages qu'il cause, vous ne parvenez pas à l'éradiquer."

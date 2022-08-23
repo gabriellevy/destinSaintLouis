@@ -28,24 +28,11 @@ init -5 python:
         entrainementChasse = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementChasse")
         entrainementChasse.AjouterCondition(estPasGrandChasseur)
         selecteur_.ajouterDeclencheur(entrainementChasse)
-        # entrainement prêtre
-        entrainementPretre = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementPretre")
-        entrainementPretre.AjouterCondition(estPasGrandPretre)
-        entrainementPretre.AjouterCondition(estPasChretien)
-        selecteur_.ajouterDeclencheur(entrainementPretre)
         # entrainement stratège/général
         entrainementStratege = declencheur.Declencheur(proba.Proba(0.1, True), "entrainementStratege")
         entrainementStratege.AjouterCondition(estPasStrategeNivExtreme)
         entrainementStratege.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(entrainementStratege)
-
-label entrainementPretre:
-    # entrainement prêtre
-    scene bg chevauchee_paienne
-    with dissolve
-    "En tant que prince de sang divin vous être destiné à devenir un roi prêtre. Vous apprenez les rituels."
-    $ AjouterACarac(metier.Pretre.NOM, 1)
-    jump fin_cycle
 
 label entrainementStratege:
     # entrainement stratège/général
