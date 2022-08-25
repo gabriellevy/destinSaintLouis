@@ -36,9 +36,10 @@ init -5 python:
 
 label entrainementStratege:
     # entrainement stratège/général
-    scene bg tolbiac
+    scene bg armee_franque
     with dissolve
-    "Votre père Childéric vous emmène avec lui chaque fois qu'il part en campagne et ne perd pas une occasion de vous apprendre l'art de la guerre."
+    "Votre père Louis le lion a toujours insité sur le fait qu'un grand roi doit être un grand stratège."
+    "Il ne perd pas une occasion de vous apprendre l'art de la guerre."
     $ AjouterACarac(metier.Stratege.NOM, 1)
     jump fin_cycle
 

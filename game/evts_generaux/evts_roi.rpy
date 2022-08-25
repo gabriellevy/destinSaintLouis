@@ -154,11 +154,11 @@ label impots:
 label gestionPillage:
     scene bg cours
     with dissolve
-    $ nomSenateur = francss_.CreerPrenom(True)
-    "Le sénateur gallo-romain [nomSenateur] vient à vous se plaindre humblement des pillages causés par vos guerriers et vous demande d'y mettre un terme."
+    $ nom = francs_.CreerPrenom(True)
+    "Le bourgmestre [nom] vient à vous se plaindre humblement des pillages causés par vos guerriers et vous demande d'y mettre un terme."
     menu:
         "Interdire le pillage sous peine de mort":
-            "Les guerriers prennent très mal cet affront à la coutume. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
+            "Les soldats prennent très mal cet affront à leurs habitues. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
             $ RetirerACarac(heros.Heros.C_FIDELITE_ARMEE, 2)
             $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
             jump fin_cycle
@@ -172,6 +172,7 @@ label gestionPillage:
             jump fin_cycle
         "L'exécuter pour son insolence":
             $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+            $ RetirerACarac(heros.Heros.C_SAINTETE, 10)
             jump fin_cycle
 
     jump fin_cycle

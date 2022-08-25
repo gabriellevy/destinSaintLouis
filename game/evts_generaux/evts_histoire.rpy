@@ -14,10 +14,19 @@ init -5 python:
         ecuDOr = dec_histo.DecHistoU(proba.Proba(0.3, True), "ecuDOr", 1226)
         ecuDOr.AjouterCondition(estRoi)
         selecteur_.ajouterDeclencheur(ecuDOr)
+        # Inquisition
+        creationInquisition = dec_histo.DecHistoU(proba.Proba(0.3, True), "creationInquisition", 1233)
+        selecteur_.ajouterDeclencheur(creationInquisition)
         # fin de l'ordalie
         ordalie = dec_histo.DecHistoU(proba.Proba(0.1, True), "ordalie", 0)
         ordalie.AjouterCondition(estRoi)
         selecteur_.ajouterDeclencheur(ordalie)
+
+label creationInquisition:
+    scene bg inquisition
+    "Le pape Grégoire IX a institué l'inquisition, une organisation d'enquêteurs religieux spécialisé dans le combat contre l'hérésie."
+    "Il attend la coopération de tous les bons catholiques pour extirper une bonne foi pour toutes les graines de l'hérésie, en particulier les restes des cathares."
+    jump fin_cycle
 
 label ordalie:
     "L'ordalie, ou jugement de Dieu, a été interdite par le 4ème concile de Latran en 1215."
