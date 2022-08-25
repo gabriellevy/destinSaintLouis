@@ -21,6 +21,22 @@ init -5 python:
         ordalie = dec_histo.DecHistoU(proba.Proba(0.1, True), "ordalie", 0)
         ordalie.AjouterCondition(estRoi)
         selecteur_.ajouterDeclencheur(ordalie)
+        # Saint Dominique
+        cannonisationSaintDominique = dec_histo.DecHistoU(proba.Proba(0.3, True), "cannonisationSaintDominique", 1234, 1234)
+        selecteur_.ajouterDeclencheur(cannonisationSaintDominique)
+        # Saint François
+        cannonisationSaintFrancois = dec_histo.DecHistoU(proba.Proba(0.3, True), "cannonisationSaintFrancois", 1228, 1228)
+        selecteur_.ajouterDeclencheur(cannonisationSaintFrancois)
+
+label cannonisationSaintFrancois:
+    "Feu Saint François d'Assise est un chrétien illustre, fondateur de l'ordre des moines mendiants 'les Mineurs'."
+    "Il vient d'être cannonisé par l'église. Bientôt son ordre sera rebaptisé les Franciscains, en son honneur."
+    jump fin_cycle
+
+label cannonisationSaintDominique:
+    "Le célèbre moine espagnol Dominique de Calaruega, mort en 1221 quand vous étiez enfant, vient d'être cannonisé."
+    "Il a fondé l'ordre des moines mendiant 'les frères pêcheurs'. Bientôt ceux ci seront rebaptisés de son nom : les Dominicains."
+    jump fin_cycle
 
 label creationInquisition:
     scene bg inquisition

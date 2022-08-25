@@ -6,7 +6,7 @@ from abs import condition
 
 class DecHisto(declencheur.Declencheur):
 
-    def __init__(self, aproba, labelGoTo, dateMin):
+    def __init__(self, aproba, labelGoTo, dateMin, dateMax = -1):
         """
         cette version du délencheur inclut 1 paramètre utile en mode "historique" :
          - une date minimum de déclenchement
@@ -16,17 +16,21 @@ class DecHisto(declencheur.Declencheur):
 
         conditionDate = condition.Condition(temps.Date.DATE_ANNEES, dateMin, condition.Condition.SUPERIEUR_EGAL)
         self.AjouterCondition(conditionDate)
+        if dateMax != -1:
+            conditionDateMax = condition.Condition(temps.Date.DATE_ANNEES, dateMax, condition.Condition.INFERIEUR_EGAL)
+            self.AjouterCondition(conditionDateMax)
+
 
 class DecHistoU(DecHisto):
     """
     U signifie 'Unique' => l'événement auquel on applique ce déclencheur ne peut s'exécuter qu'une fois maximum
     """
 
-    def __init__(self, aproba, labelGoTo, dateMin):
+    def __init__(self, aproba, labelGoTo, dateMin, dateMax = -1):
         """
         identique à la version historique mais ne se déclenche qu'une fois maximum quoiqu'il arrive
         """
-        DecHisto.__init__(self, aproba, labelGoTo, dateMin)
+        DecHisto.__init__(self, aproba, labelGoTo, dateMin, dateMax)
 
     def executer(self, situation):
         # cette exécution ne doit plus jamais arriver : on lui met une proba à 0 :
