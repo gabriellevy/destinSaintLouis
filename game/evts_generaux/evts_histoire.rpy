@@ -27,6 +27,17 @@ init -5 python:
         # Saint François
         cannonisationSaintFrancois = dec_histo.DecHistoU(proba.Proba(0.3, True), "cannonisationSaintFrancois", 1228, 1228)
         selecteur_.ajouterDeclencheur(cannonisationSaintFrancois)
+        # flagellants
+        flagellants = dec_histo.DecHistoU(proba.Proba(0.3, True), "flagellants", 1260, 1261)
+        selecteur_.ajouterDeclencheur(flagellants)
+
+label flagellants:
+    scene bg flagellants
+    "Alors que la maladie et l'insécurité se déchainent en Italie, une grande ferveur s'y répand depuis quelques temps."
+    "Des gens partis de la ville de Pérouse parcourent les villes, nus jusqu'à la taille, et se flegellent à coups de fouets en chantant des cantiques."
+    "Ainsi ils tentent de se repentir et d'expier leurs péchés avant l'apocalypse pour être accueillis au royaume de Dieu."
+    "On les surnomme les flagellants."
+    jump fin_cycle
 
 label cannonisationSaintFrancois:
     "Feu Saint François d'Assise est un chrétien illustre, fondateur de l'ordre des moines mendiants 'les Mineurs'."
