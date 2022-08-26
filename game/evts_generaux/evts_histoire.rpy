@@ -30,6 +30,14 @@ init -5 python:
         # flagellants
         flagellants = dec_histo.DecHistoU(proba.Proba(0.3, True), "flagellants", 1260, 1261)
         selecteur_.ajouterDeclencheur(flagellants)
+        # reconquista
+        reconquista = dec_histo.DecHistoU(proba.Proba(0.3, True), "reconquista", 1230)
+        selecteur_.ajouterDeclencheur(reconquista)
+
+label reconquista:
+    "Votre glorieux cousin Ferdinand III progresse dans la reconquista de l'Espagne sur les infidèles musulmans."
+    "Il vient de réunir les deux royaumes du Léon et de la Castille !"
+    jump fin_cycle
 
 label flagellants:
     scene bg flagellants
