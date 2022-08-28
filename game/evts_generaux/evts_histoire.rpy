@@ -33,6 +33,21 @@ init -5 python:
         # reconquista
         reconquista = dec_histo.DecHistoU(proba.Proba(0.3, True), "reconquista", 1230)
         selecteur_.ajouterDeclencheur(reconquista)
+        # cathédrales
+        cathedrales = dec_histo.DecHistoU(proba.Proba(0.3, True), "cathedrales", 1236)
+        selecteur_.ajouterDeclencheur(cathedrales)
+
+label cathedrales:
+    scene bg notre_dame
+    "Votre règne est la règne du temps des cathédrales. Les chantiers s'élèvent dans toute la France."
+    "La façade de Notre Dame de Paris est en construction aussi loin que vous vous en souvenez."
+    scene bg cathedrale_reims
+    "La cathédrale de Reims est en reconstruction."
+    scene bg cathedrale_chartre
+    "La cathédrâle de Chartres est presque achevée."
+    scene bg cathedrale_amiens
+    "Et la construction de cathédrale d'Amiens vient de débuter."
+    jump fin_cycle
 
 label reconquista:
     "Votre glorieux cousin Ferdinand III progresse dans la reconquista de l'Espagne sur les infidèles musulmans."
