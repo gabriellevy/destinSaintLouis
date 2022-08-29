@@ -30,12 +30,14 @@ label avenement:
     $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
     # enterrement de Louis VIII
-    "Votre glorieux père Louis vient de mourir." # Louis VII le lion
+    "Votre glorieux père Louis vient de mourir." # Louis VIII le lion
     "A FAIRE : avènement"
     # avènement => maman régente
 
     # royaume de Louis à son avènement
     "A FAIRE : afficher carte et décrire royaume"
+    "Grâce à votre père mais surtout grace à Philippe Auguste votre grand-père votre domaine est très vaste."
+    "Les caisses sont pleines, le royaume est riche, solide et bien organisé. À vous de vous rendre digne de cet héritage somptueux."
     # $ AfficherCarteActuelle()
     # with dissolve
 
