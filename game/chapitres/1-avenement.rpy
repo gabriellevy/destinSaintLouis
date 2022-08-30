@@ -17,9 +17,24 @@ init -5 python:
 
     def AjouterEvtAvenement():
         global selecteur_
+        # croisadeAlbigeois
+        croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(0.9, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
+        croisadeAlbigeois.AjouterCondition(estPasRoi)
+        selecteur_.ajouterDeclencheur(croisadeAlbigeois)
+        # avènement
         avenement = dec_histo.DecHistoU(proba.Proba(0.6, False), "avenement", 1226)
         avenement.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(avenement)
+
+label croisadeAlbigeois:
+    menu:
+        "croisade albigeois"
+        "ok":
+            pass
+    "Votre père Louis VIII le lion a courageusement pris la croix pour aller extirper l'hérésie cathare du Sud."
+
+    jump fin_cycle
+
 
 label avenement:
     scene bg priere

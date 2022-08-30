@@ -12,12 +12,12 @@ init -5 python:
     def AjouterEvtsMongols():
         global selecteur_
         # événements précis
-        mongols_riazan = dec_histo.DecHisto(proba.Proba(0.4, True), "mongols_riazan", 1237)
+        mongols_riazan = dec_histo.DecHistoU(proba.Proba(0.4, True), "mongols_riazan", 1237)
         selecteur_.ajouterDeclencheur(mongols_riazan)
-        mongols_rus = dec_histo.DecHisto(proba.Proba(0.4, True), "mongols_rus", 1239)
+        mongols_rus = dec_histo.DecHistoU(proba.Proba(0.4, True), "mongols_rus", 1239)
         selecteur_.ajouterDeclencheur(mongols_rus)
         # mongols, événements génériques post menace principale
-        mongols = dec_histo.DecHisto(proba.Proba(0.2, True), "mongols", 1241)
+        mongols = dec_histo.DecHistoU(proba.Proba(0.2, True), "mongols", 1241)
         selecteur_.ajouterDeclencheur(mongols)
 
         delegation_mongols_diplo_cond = condition.Condition("delegation_mongols_diplo", 1, condition.Condition.EGAL)

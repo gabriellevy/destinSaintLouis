@@ -130,3 +130,8 @@ class Date:
     def __str__(self):
         """Affichage quand on affiche l'objet (print)"""
         return u"{} {} {} {}".format(self.GetStrJourSemaine(), self.GetNbJourDuMois(), self.GetStrMois(), self.GetNbAnnees())
+
+class DateGregorienne(Date):
+    def __init__(self, numJour, numMois, numAnnee):
+        nbJours = numJour + (numMois-1) * 30 + (numAnnee) * 365
+        Date.__init__(self, nbJours)

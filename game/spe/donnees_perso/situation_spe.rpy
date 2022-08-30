@@ -21,7 +21,7 @@ init -10 python:
 
         def __init__(self, id, **kwargs):
             Situation.__init__(self, id, **kwargs)
-            date = temps.Date(365 * 1210) # A FAIRE : déterminer une date de début d'histoire
+            date = temps.DateGregorienne(14, 7, 1223) # date de début d'histoire = mort de Philippe Auguste
             self.SetValCarac(temps.Date.DATE, date.nbJours_)
 
         # def __init__(self):
