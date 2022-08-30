@@ -18,34 +18,53 @@ init -5 python:
     def AjouterEvtAvenement():
         global selecteur_
         # croisadeAlbigeois
-        croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(0.9, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
-        croisadeAlbigeois.AjouterCondition(estPasRoi)
+        croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois)
-        # avènement
-        avenement = dec_histo.DecHistoU(proba.Proba(0.6, False), "avenement", 1226)
-        avenement.AjouterCondition(estPasRoi)
-        selecteur_.ajouterDeclencheur(avenement)
+        # croisadeAlbigeois_2
+        croisadeAlbigeois_2 = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois_2", temps.DateGregorienne(1, 8, 1226))
+        selecteur_.ajouterDeclencheur(croisadeAlbigeois_2)
+        # croisadeAlbigeois_3
+        croisadeAlbigeois_3 = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois_3", temps.DateGregorienne(1, 10, 1226))
+        selecteur_.ajouterDeclencheur(croisadeAlbigeois_3)
+        # mort_louis_VIII
+        mort_louis_VIII = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "mort_louis_VIII", temps.DateGregorienne(8, 11, 1226))
+        selecteur_.ajouterDeclencheur(mort_louis_VIII)
 
 label croisadeAlbigeois:
+    scene bg chevaliers
+    play music epique_principale
     menu:
         "croisade albigeois"
         "ok":
             pass
-    "Votre père Louis VIII le lion a courageusement pris la croix pour aller extirper l'hérésie cathare du Sud."
-
+    "Votre père Louis VIII le lion a courageusement pris la croix pour aller extirper l'hérésie cathare du Sud. Il est en route vers la Provence"
     jump fin_cycle
 
+label croisadeAlbigeois_2:
+    scene bg chevaliers
+    "Votre vaillant père Louis vient de capturer la ville d'Avignon qui résistait à sa croisade. Il envahit maintenant le Languedoc pour obtenir sa soumission."
+    jump fin_cycle
 
-label avenement:
+label croisadeAlbigeois_3:
+    scene bg chevaliers
+    "Avec l'aide de Dieu le roi Louis a obtenu la soumission de la Provence et du Languedoc. L'hérésie cathare est éliminée."
+    "Mais sur le chemin du retour il est tombé gravement malade."
+    jump fin_cycle
+
+label mort_louis_VIII:
     scene bg priere
     with dissolve
     play music roi_mort noloop
+    "Votre glorieux père est mort des suites de la maladie qu'il a contracté lors de sa croisade. Il était bien jeune à 39 ans et vous l'avez peu connu."
+    # enterrement de Louis VIII
+    "Vous n'avez vous-même que 12 ans qu'allez vous devenir ?"
+    jump avenement
+
+label avenement:
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits
     $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
-    # enterrement de Louis VIII
-    "Votre glorieux père Louis vient de mourir." # Louis VIII le lion
     "A FAIRE : avènement"
     # avènement => maman régente
 
