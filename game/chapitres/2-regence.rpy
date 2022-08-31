@@ -1,6 +1,8 @@
 
 
 label regence:
+    scene bg regence
+    bl "Mon fils, j'aimerais mieux vous voir mort que coupable d'un seul péché mortel."
     jump fin_cycle
 
 label avenement:
