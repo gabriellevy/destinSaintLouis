@@ -33,10 +33,6 @@ init -5 python:
 label croisadeAlbigeois:
     scene bg chevaliers
     play music epique_principale
-    menu:
-        "croisade albigeois"
-        "ok":
-            pass
     "Votre père Louis VIII le lion a courageusement pris la croix pour aller extirper l'hérésie cathare du Sud. Il est en route vers la Provence"
     jump fin_cycle
 
@@ -58,22 +54,23 @@ label mort_louis_VIII:
     "Votre glorieux père est mort des suites de la maladie qu'il a contracté lors de sa croisade. Il était bien jeune à 39 ans et vous l'avez peu connu."
     # enterrement de Louis VIII
     "Vous n'avez vous-même que 12 ans qu'allez vous devenir ?"
-    jump avenement
+    jump mort_louis_VIII_2
 
-label avenement:
+label mort_louis_VIII_2:
     # A FAIRE : trouver un fond pour le couronnement
     show screen valeurs_traits
     $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
-    "A FAIRE : avènement"
-    # avènement => maman régente
-
-    # royaume de Louis à son avènement
-    "A FAIRE : afficher carte et décrire royaume"
-    "Grâce à votre père mais surtout grace à Philippe Auguste votre grand-père votre domaine est très vaste."
-    "Les caisses sont pleines, le royaume est riche, solide et bien organisé. À vous de vous rendre digne de cet héritage somptueux."
-    # $ AfficherCarteActuelle()
-    # with dissolve
-
-    $ situation_.SetValCarac(metier.Metier.C_METIER, metier.Roi.NOM)
-    jump fin_cycle
+    bl "Sois courageux, Louis. Ton père est mort. Mais nul doute qu'après toutes ses bonnes actions et sa piété, le Saint père l'accueillera à ses côtés."
+    bl "Tu es trop jeune pour devenir roi mais ne crains rien. Les conseillers de ton père sont des hommes bons et nobles, ils vont faire au mieux."
+    bl "Ton oncle Philippe Hurepel ne peut ni ne doit être roi, c'est ta destinée de fils aîné. Pour éviter qu'il ne prenne trop d'importance il ne sera pas régent du royeaume, sinon il risquerait de prendre ton dû."
+    bl "C'est moi, ta mère, qui vait prendre la tête du royaume en attendant ta majorité. Je te formerai et j'écouterai les sages des conseillers."
+    menu:
+        "As tu bien compris ?"
+        "Oui":
+            "A FAIRE"
+            jump regence
+        "Non":
+            "A FAIRE"
+            jump regence
+    jump regence

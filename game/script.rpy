@@ -7,7 +7,7 @@ default situation_ = SituationSpe("situation_")
 define narrator = Character(color="#fafad8", what_italic=True)
  # personnage standard remplacé selon les situations. (son nom est mis à jour avant utilisation)
 define std = Character('Perso standard...', color="#B22222")
-define cl = Character('Jeanne', color="#800000")
+define bl = Character('Blanche de Castille', color="#800000")
 
 # Musiques
 define audio.roi_mort = "musique/akingisdead.ogg"
