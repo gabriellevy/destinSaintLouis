@@ -2,6 +2,8 @@
 
 label regence:
     scene bg regence
+    show blanche at left
+    with moveinleft
     bl "Mon fils, j'aimerais mieux vous voir mort que coupable d'un seul péché mortel."
     jump fin_cycle
 
