@@ -28,22 +28,22 @@ init -10 python:
         #     situation.Situation.__init__(self, 175000)
 
         # ------------------------------------------------AFFICHAGE---------------------------------------
-        def AffichageFideliteGaule(self):
+        def AffichageFideliteFrancais(self):
             global debug_
             str = u""
             val = self.GetValCaracInt(heros.Heros.C_FIDELITE_PEUPLE)
             if val < 0:
-                str = u"Détesté par les gaulois"
+                str = u"Détesté par les français"
             elif val <= 2:
-                str = u"Connu des gaulois"
+                str = u""
             elif val <= 4:
-                str = u"Accepté par les gaulois"
+                str = u"Accepté par les français"
             elif val <= 7:
-                str = u"Apprécié par les gaulois"
+                str = u"Apprécié par les français"
             elif val <= 10:
-                str = u"Adoré par les gaulois"
+                str = u"Adoré par les français"
             else:
-                str = u"Vénéré par les gaulois"
+                str = u"Vénéré par les français"
             if self.debug_:
                 return u"{} ({})".format(str, val)
             return str
@@ -84,22 +84,6 @@ init -10 python:
             if self.debug_:
                 return u"{} ({})".format(str, val)
             return str
-
-        def AffichageReligion(self):
-            if self.GetValCarac(religion.Religion.C_RELIGION) == religion.Paien.NOM:
-                valPretre = self.GetValCaracInt(metier.Pretre.NOM)
-                strPretre = u""
-                if valPretre > 0:
-                    strPretre = u" - Prêtre roi"
-                str =  u"Païen{}".format(strPretre)
-                if self.debug_:
-                    str = u"{} ({})".format(str, self.caracs_[heros.Heros.C_CHRISTIANISME])
-                return str
-            if self.caracs_[religion.Religion.C_RELIGION] == religion.Christianisme.NOM:
-                if self.debug_:
-                    return u"{} ({})".format(self.caracs_[religion.Religion.C_RELIGION], self.caracs_[heros.Heros.C_CHRISTIANISME])
-
-            return self.caracs_[religion.Religion.C_RELIGION]
 
         def AffichageGloire(self):
             val = self.GetValCarac(heros.Heros.C_GLOIRE)
