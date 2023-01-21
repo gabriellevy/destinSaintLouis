@@ -10,6 +10,9 @@ class Heros:
     C_FIDELITE_NOBLES = u"Fidélité des nobles"
     C_FIDELITE_ARMEE = u"Fidélité de l'armée"
 
+    # valeurs fixes liées aux objectifs
+    C_VAL_SAINTETE_CANONISATION = u"Canonisation"
+
     # événements spéciaux
     # C_VASE_SOISSONS = u"Vase de soissons" # 1 si l'histoire réelle est bien suivie
     # C_LOI_SALIQUE = u"Loi salique" # 1 si la loi salique a été promulguée

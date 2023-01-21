@@ -26,7 +26,7 @@ init -5 python:
         selecteur_.ajouterDeclencheur(naissanceJeanTristan)
         naissancePierre = dec_histo.DecHistoU(proba.Proba(0.6, True), "naissancePierre", 1251)
         selecteur_.ajouterDeclencheur(naissancePierre)
-        naissanceBlanche = dec_histo.DecHistoU(proba.Proba(0.6, True), "naissanceBlanche", 1253)
+        naissanceBlanche = dec_histo.DecHistoU(proba.Proba(0.6, True), "naissanceBlanche2", 1253)
         selecteur_.ajouterDeclencheur(naissanceBlanche)
         naissanceMarguerite = dec_histo.DecHistoU(proba.Proba(0.6, True), "naissanceMarguerite", 1254)
         selecteur_.ajouterDeclencheur(naissanceMarguerite)
@@ -67,7 +67,7 @@ label naissancePierre:
     "Votre fils Pierre vient de naître."
     jump fin_cycle
 
-label naissanceBlanche:
+label naissanceBlanche2:
     "Votre fille Blanche vient de naître."
     jump fin_cycle
 

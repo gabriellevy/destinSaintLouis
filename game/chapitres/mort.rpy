@@ -7,7 +7,7 @@ label mort:
             pass
     $ saintete = situation_.GetValCaracInt(heros.Heros.C_SAINTETE)
     $ print("Sainteté : {}".format(saintete))
-    if saintete >= 500:
+    if saintete >= heros.Heros.C_VAL_SAINTETE_CANONISATION:
         "Félicitations vous avez accompli votre destin ! Vous êtes un Saint, pour le peuple et pour l'église !"
     elif saintete < 100:
         "Vous avez été loin, très loin de faire honneur à Jésus Christ et à la seule vraie religion chrétienne. Puissiez vous échapper à l'enfer."
