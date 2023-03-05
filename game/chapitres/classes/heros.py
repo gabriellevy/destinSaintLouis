@@ -7,7 +7,9 @@ class Heros:
     # et de son royaume mises en place en début de partie
     C_DIPLOMATIE = u"Diplomatie" # statut et fiabilité de Saint Louis et de ses diplomates
     C_MILITAIRE = u"Puissance de l'Armée"
-    C_FIDELITE_PEUPLE = u"Fidélité du peuple" # plus c'est élevé plus les paysans sont fidèles à Louis
+    C_PEUR_PEUPLE = u"Peur du peuple"
+    C_AMOUR_PEUPLE = u"Amour du peuple"
+    C_FIDELITE_PEUPLE = u"Fidélité du peuple" # plus c'est élevé plus les paysans sont fidèles à Louis => égale à l'amour plus la peur
     C_FIDELITE_NOBLES = u"Fidélité des nobles"
     C_FIDELITE_ARMEE = u"Fidélité de l'armée"
 

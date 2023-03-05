@@ -16,7 +16,7 @@ init -5 python:
     estRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.EGAL)
     estEnfant = condition.Condition(temps.Date.AGE_ANNEES, 15, condition.Condition.INFERIEUR_EGAL)
 
-    def AjouterEvtAvenement():
+    def AjouterEvtsJeunePrince():
         global selecteur_
         # ------------- éducation
         precepteur1 = dec_histo.DecHistoU(proba.Proba(0.1, True), "precepteur1", 1214, 1230)

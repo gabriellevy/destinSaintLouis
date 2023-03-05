@@ -69,7 +69,7 @@ label rentree_dimpots:
         "Garder cela dans vos coffres":
             $ AjouterACarac(trait.Richesse.NOM, 1)
         "Organiser des festivals pour le peuple":
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
     jump fin_cycle
 
 label revolte_impots:
@@ -80,7 +80,7 @@ label revolte_impots:
         "Comment gérez-vous cette révolte ?"
         "Leur accorder une dispense exceptionnelle.":
             $ RetirerACarac(trait.Richesse.NOM, 1)
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
         "Envoyer l'armée les réprimer [testCombat.affichage_]":
             $ reussi = testCombat.TesterDifficulte(situation_)
             if reussi:
@@ -143,7 +143,8 @@ label impots:
                     "Oui":
                         "Les pillages vous rapportent et défoulent vos soldats mais le peuple vous déteste encore plus."
                         $ AjouterACarac(trait.Richesse.NOM, 1)
-                        $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+                        $ RetirerACarac(heros.Heros.C_AMOUR_PEUPLE, 2)
+                        $ AjouterACarac(heros.Heros.C_PEUR_PEUPLE, 1)
                         $ RetirerACarac(heros.Heros.C_SAINTETE, 5)
                         $ AjouterACarac(heros.Heros.C_FIDELITE_ARMEE, 1)
                     "Non":
@@ -159,18 +160,18 @@ label gestionPillage:
         "Interdire le pillage sous peine de mort":
             "Les soldats prennent très mal cet affront à leurs habitues. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
             $ RetirerACarac(heros.Heros.C_FIDELITE_ARMEE, 2)
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 2)
             jump fin_cycle
         "Réprimander les soldats":
             "Les guerriers prennent mal la réprimande. Ils doivent acheter et entretenir leur propre matériel. À quoi bon si ils ne peuvent pas se payer sur les vaincus ?"
             $ RetirerACarac(heros.Heros.C_FIDELITE_ARMEE, 1)
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             jump fin_cycle
         "Le renvoyer sèchement. Vae Victis !":
-            $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ RetirerACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             jump fin_cycle
         "L'exécuter pour son insolence":
-            $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+            $ RetirerACarac(heros.Heros.C_AMOUR_PEUPLE, 2)
             $ RetirerACarac(heros.Heros.C_SAINTETE, 10)
             jump fin_cycle
 
@@ -185,7 +186,7 @@ label comtCritique:
     menu:
         "Le réprimander publiquement":
             "Les galloromains apprécident de voir que leurs demandes sont entendues. Le comte [nomComte] n'ose plus les pressurer autant qu'avant."
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             $ RetirerACarac(trait.Richesse.NOM, 1)
             jump fin_cycle
 
@@ -193,18 +194,18 @@ label comtCritique:
             "Le peuple est satisfait de voir son tourmenteur mort, mais les autres comtes sont terrifiés de voir que la fidélité envers vous ne leur garantit pas votre clémence."
             $ RetirerACarac(trait.Richesse.NOM, 1)
             $ RetirerACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 2)
             jump fin_cycle
 
         "le laisser agir à sa guise tant que les impôts entrent":
             "Le peuple est écrasé mais l'argent coule à flot."
             $ AjouterACarac(trait.Richesse.NOM, 1)
-            $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 2)
+            $ RetirerACarac(heros.Heros.C_AMOUR_PEUPLE, 2)
             jump fin_cycle
 
         "le remplacer discrètement":
             "Les galloromains apprécident de voir que leurs demandes sont entendues."
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             $ RetirerACarac(trait.Richesse.NOM, 1)
             jump nommageComte
     jump fin_cycle
@@ -224,11 +225,11 @@ label nommageComte:
             $ AjouterACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
             jump fin_cycle
         "[nomComte2], un bourgeois notable respecté":
-            $ AjouterACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ AjouterACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             jump fin_cycle
         "[nomComte3], un roturier malin et dévoué qui saura faire rentrer les impôts":
             "[nomComte3] est en effet doué et efficace mais il se fait vite détester par tout le royaume."
-            $ RetirerACarac(heros.Heros.C_FIDELITE_PEUPLE, 1)
+            $ RetirerACarac(heros.Heros.C_AMOUR_PEUPLE, 1)
             $ RetirerACarac(heros.Heros.C_FIDELITE_NOBLES, 1)
             $ AjouterACarac(trait.Richesse.NOM, 1)
             jump fin_cycle

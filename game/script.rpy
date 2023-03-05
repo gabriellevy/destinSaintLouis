@@ -44,12 +44,13 @@ init -1 python:
 
     AjouterEvtsProfessionnels()
     AjouterEvtsRoi()
-    AjouterEvtAvenement()
+    AjouterEvtsJeunePrince()
     AjouterEvtsRien()
     AjouterEvtsDiplomatie()
     AjouterEvtsHistoire()
     AjouterEvtsFamille()
     AjouterEvtsMongols()
+    AjouterEvtsReligion()
 
 # Le jeu commence ici
 label start:
@@ -83,6 +84,11 @@ label debut_cycle:
 label fin_cycle:
     # "Fin d'un cycle."
     # jump mort # tmp test
+
+    # maj de la valeur de fidéllité => elle est égale à la somme de la peur et de l'amour que le peuple ressent pour le roi
+    $ peur = situation_.GetValCaracInt(heros.Heros.C_PEUR_PEUPLE)
+    $ amour = situation_.GetValCaracInt(heros.Heros.C_AMOUR_PEUPLE)
+    $ SetValCaracInt(heros.Heros.C_FIDELITE_PEUPLE, peur + amour)
 
     $ situation_.TourSuivant()
 
