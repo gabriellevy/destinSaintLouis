@@ -4,10 +4,10 @@ label intro:
     scene bg naissance
     with dissolve
     show screen valeurs_traits
-    "Vous êtes Louis IX mais vous êtes encore un enfant."
+    "Vous êtes Louis IX mais vous êtes encore un enfant. Vous appréciez qu'on vous appelle Louis de Poissy, par votre lieu de naissance."
     scene bg louis_8
-    "On vous appelle Louis de Poissy, par votre lieu de naissance.Le roi Louis de France est Louis VIII, votre père."
-    "Auréolé de sa victoire contre l'anglais Jean sans terre, Louis le lion trône fièrement aux côté de Blanche de Castille, votre mère."
+    "Le roi Louis de France est Louis VIII, dit Louis le lion, votre père. C'est un grand guerrier, descendant du glorieux Charlemagne."
+    "Auréolé de sa victoire contre l'anglais Jean sans terre, Louis trône fièrement aux côté de Blanche de Castille, votre mère."
     scene bg louis_et_sa_mere
     "Blanche est une femme à la fois forte, courageuse et ambitieuse."
     "Si on rajoute le fait qu'elle est étrangère il est facile de comprendre qu'elle est peu populaire parmi les courtisans."
