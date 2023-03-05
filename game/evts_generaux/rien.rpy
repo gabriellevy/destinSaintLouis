@@ -114,9 +114,7 @@ label evtRien5:
 
 label evtRien6:
     with Dissolve(.5)
-    "Les gaulois sont peu combatifs et donc souvent méprisés par votre peuple car soumis et failes à dominer."
-    "Vous devez néanmoins reconnaître qu'en artisanat et architecture ils sont largement supérieurs."
-    "Ce sont des céramistes gaulois que vous chargez de la fabrication des bouteilles, cruches, bols et assiettes de votre palais car leur qualité est nettement supérieure."
+    "A FAIRE"
     jump fin_cycle
 
 label evtRien7:
@@ -127,8 +125,7 @@ label evtRien7:
 
 label evtRien8:
     with Dissolve(.5)
-    "Parmi les coutumes romaines les jeux de cirque sont toujours aussi populaires, même chez les francs."
-    "Certes ceux qui se donnent en Gaule de nos jours sont loin d'être somptueux comme à Rome. Mais vous avez les moyens d'organiser des courses de char et même des combats de gladiateurs."
+    "A FAIRE"
     jump fin_cycle
 
 label evtRien9:

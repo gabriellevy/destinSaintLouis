@@ -73,8 +73,7 @@ label rentree_dimpots:
     jump fin_cycle
 
 label revolte_impots:
-    "En conquérant l'empire romain vous avez bien sûr repris leur intéressant système d'impôts directs et indirects qui alimente vos caisses régulièrement."
-    "Mais cette année les gaulois se rebellent et refusent de payer."
+    "Il est de plus en plus dur de lever des impôts. Cete fois les paysans se rebellent et refusent de payer."
     $ testCombat = testDeCarac.TestDeCarac(heros.Heros.C_MILITAIRE, 3, situation_)
     $ testPolitique = testDeCarac.TestDeCarac(metier.Politique.NOM, 6, situation_)
     menu:
@@ -85,7 +84,7 @@ label revolte_impots:
         "Envoyer l'armée les réprimer [testCombat.affichage_]":
             $ reussi = testCombat.TesterDifficulte(situation_)
             if reussi:
-                "Après quelques exécutions et granges brûlées les gaulois sont vite calmés."
+                "Après quelques exécutions et granges brûlées les paysans sont vite calmés."
             else:
                 "Les rebelles sont étonnament coriaces. Non seulement ils ne payent pas mais ils humilient vos soldats durant quelques escarmouches sanglantes."
                 $ RetirerACarac(heros.Heros.C_GLOIRE, 1)

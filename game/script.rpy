@@ -55,7 +55,7 @@ init -1 python:
 label start:
     scene bg priere
     # play music musique_menu
-    queue music [ epique_principale, conquetes ] # pseudo liste de lecture temporaire
+    queue music [ epique_principale, conquetes, turexgloriae, christ1, youpi_paien, danger ] # pseudo liste de lecture temporaire
     jump init_secondary_data
 
 label init_secondary_data:
