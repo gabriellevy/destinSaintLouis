@@ -29,6 +29,10 @@ init -5 python:
         if ageLouis <= 18:
             evtsVides_.append("evtRien_enfant1")
             evtsVides_.append("evtRien_enfant2")
+            evtsVides_.append("evtRien_enfant3")
+            evtsVides_.append("evtRien_enfant4")
+            evtsVides_.append("evtRien_enfant5")
+            evtsVides_.append("evtRien_enfant6")
 
         # christianisme
         # evts
@@ -77,6 +81,26 @@ label evtRien_enfant1:
 
 label evtRien_enfant2:
     "Votre père est un grand chevalier dont vous êtes fier. Mais il passe tellement de temps à guerroyer que vous le voyez très rarement."
+    jump fin_cycle
+
+label evtRien_enfant3:
+    scene bg education_saint_louis
+    "Vos maîtres vous apprennent les rudiments du savoir. Vous avez des précepteurs de lecture, écriture, et calcul."
+    jump fin_cycle
+
+label evtRien_enfant4:
+    scene bg education_saint_louis
+    "Vos maîtres en arts libéraux vous apprennent la grammaire, la rhétorique, la philosophie et la logique."
+    jump fin_cycle
+
+label evtRien_enfant5:
+    scene bg education_saint_louis
+    "Vous adorez vous promener dans les bois. Vous aimez aussi les jeux sur l'eau, comme de ramer sur les rivières."
+    jump fin_cycle
+
+label evtRien_enfant6:
+    scene bg enfant_louis_a_la_messe
+    "Vous suivez la messe avec attention, comme votre mère Blanche le souhaite."
     jump fin_cycle
 
 label evtRien1_automne:

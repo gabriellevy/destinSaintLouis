@@ -14,9 +14,14 @@ init -5 python:
 
     estPasRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.DIFFERENT)
     estRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.EGAL)
+    estEnfant = condition.Condition(temps.Date.AGE_ANNEES, 15, condition.Condition.INFERIEUR_EGAL)
 
     def AjouterEvtAvenement():
         global selecteur_
+        # ------------- éducation
+        precepteur1 = dec_histo.DecHistoU(proba.Proba(0.1, True), "precepteur1", 1214, 1230)
+        precepteur1.AjouterCondition(estPasRoi)
+        selecteur_.ajouterDeclencheur(precepteur1)
         # croisadeAlbigeois
         croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois)
@@ -29,6 +34,23 @@ init -5 python:
         # mort_louis_VIII
         mort_louis_VIII = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "mort_louis_VIII", temps.DateGregorienne(8, 11, 1226))
         selecteur_.ajouterDeclencheur(mort_louis_VIII)
+
+label precepteur1:
+    scene bg education_saint_louis
+    "Votre précepteur insiste pour que vous révisiez vos cours d'écriture. Mais vous avez plutôt envie d'aller vous promener près de la rivière. Il insite."
+    menu:
+        "Vous êtes prince, vous faites ce que vous voulez, vous allez à la rivière.":
+            "À votre grande surprise votre précepteur vous fait donner la bastonnade ! À vous un prince de sang ! Un jour vous aurez le pouvoir de vous venger."
+            $ AjouterACarac(trait.Violence.NOM, 1)
+
+        "Vous obéissez et révisez.":
+            $ AjouterACarac(heros.Heros.C_EDUCATION, 1)
+
+        "Vous proposez au précepteur de monter dans votre barque et de vous aider à réviser tout en vous promenant.":
+            "Vote précepteur est ravi de vous voir développer si jeune votre sens de la diplomatie et accepte. Il ajoute que vous devrez en faire grand usage quand vous aurez des responsabilités."
+            $ AjouterACarac(metier.Politique.NOM, 1)
+
+    jump fin_cycle
 
 label croisadeAlbigeois:
     scene bg chevaliers

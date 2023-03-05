@@ -20,7 +20,7 @@ init -5 python:
 
     def genererLouis(tousLesTraits):
         global situation_
-        # situation[trait.Violence.NOM] = trait.Trait.SEUIL_A_EXTREME
+        situation_[trait.Violence.NOM] = 0
         # situation[trait.Opportunisme.NOM] = trait.Trait.SEUIL_A_EXTREME
         # situation[trait.Assurance.NOM] = trait.Trait.SEUIL_A_EXTREME
         # situation[trait.Observation.NOM] = trait.Trait.SEUIL_A
@@ -42,9 +42,10 @@ init -5 python:
 
         # caracs spécifiques
         situation_[heros.Heros.C_SAINTETE] = 0
-        # situation[heros.Heros.C_MILITAIRE] = 0
-        # situation[heros.Heros.C_DIPLOMATIE] = 0
-        # situation.SetValCarac(heros.Heros.C_GLOIRE, 0)
+        situation_[heros.Heros.C_MILITAIRE] = 0
+        situation_[heros.Heros.C_DIPLOMATIE] = 0
+        situation_[heros.Heros.C_EDUCATION] = 0
+        situation_[heros.Heros.C_GLOIRE] = 0
 
         # famille
         # situation.SetValCarac(heros.Heros.C_ALBOFLEDE, 1)

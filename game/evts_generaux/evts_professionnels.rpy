@@ -12,16 +12,15 @@ init -5 python:
     estPasPolitiqueNivExtreme = condition.Condition(metier.Politique.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.INFERIEUR)
     estPasStrategeNivExtreme = condition.Condition(metier.Stratege.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.INFERIEUR)
     estPasGrandChasseur = condition.Condition(metier.Chasseur.NOM, 5, condition.Condition.INFERIEUR)
-    estPasGrandPretre = condition.Condition(metier.Pretre.NOM, 5, condition.Condition.INFERIEUR)
 
     def AjouterEvtsProfessionnels():
         global selecteur_
         # entrainement guerrier
-        entrainementGuerrier = declencheur.Declencheur(proba.Proba(0.1, True), "entrainementGuerrier")
+        entrainementGuerrier = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementGuerrier")
         entrainementGuerrier.AjouterCondition(estPasGuerrierNivExtreme)
         selecteur_.ajouterDeclencheur(entrainementGuerrier)
         # entrainement politique
-        entrainementPolitique = declencheur.Declencheur(proba.Proba(0.06, True), "entrainementPolitique")
+        entrainementPolitique = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementPolitique")
         entrainementPolitique.AjouterCondition(estPasPolitiqueNivExtreme)
         selecteur_.ajouterDeclencheur(entrainementPolitique)
         # entrainement chasse
@@ -29,10 +28,34 @@ init -5 python:
         entrainementChasse.AjouterCondition(estPasGrandChasseur)
         selecteur_.ajouterDeclencheur(entrainementChasse)
         # entrainement stratège/général
-        entrainementStratege = declencheur.Declencheur(proba.Proba(0.1, True), "entrainementStratege")
+        entrainementStratege = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementStratege")
         entrainementStratege.AjouterCondition(estPasStrategeNivExtreme)
         entrainementStratege.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(entrainementStratege)
+        # éducation générale
+        educationGenerale = declencheur.Declencheur(proba.Proba(0.1, True), "educationGenerale")
+        educationGenerale.AjouterCondition(estEnfant)
+        educationGenerale.AjouterCondition(estPasRoi)
+        selecteur_.ajouterDeclencheur(educationGenerale)
+
+label educationGenerale:
+    # entrainement stratège/général
+    scene bg education_saint_louis
+    with dissolve
+    menu:
+        "Quelle est la chose dont vous avez le plus besoin pour votre éducation ?"
+        "L'entrainement au combat":
+            $ AjouterACarac(metier.Guerrier.NOM, 1)
+            $ AjouterACarac(trait.Violence.NOM, 1)
+        "L'apprentissage de la politique et de la diplomatie":
+            $ AjouterACarac(metier.Politique.NOM, 1)
+        "La religion et la morale":
+            $ AjouterACarac(heros.Heros.C_SAINTETE, 1)
+        "La culture":
+            $ AjouterACarac(heros.Heros.C_EDUCATION, 1)
+        "La stratégie militaire":
+            $ AjouterACarac(metier.Stratege.NOM, 1)
+    jump fin_cycle
 
 label entrainementStratege:
     # entrainement stratège/général
