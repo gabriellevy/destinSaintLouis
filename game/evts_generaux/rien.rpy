@@ -18,15 +18,18 @@ init -5 python:
         sceneParDefaut = ""
         # régénère les événements compatibles avec la situation
         evtsVides_ = [
-        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6", "evtRien7",
-        "evtRien8", "evtRien9", "evtRien10", "evtRien11", "evtRien12",
-        "evtRien13",
-        "evtRien18", "evtRien19", "evtRien20"
+        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6", "evtRien7", "evtRien8"
         ]
         scenesParDefaut = []
         musiquesAEnquiller = []
 
-        # selon religion
+        # rien selon époque / âge
+        ageLouis = situation.AgeEnAnnees()
+        # evts rien de l'enfance
+        if ageLouis <= 18:
+            evtsVides_.append("evtRien_enfant1")
+
+        # christianisme
         # evts
         evtsVides_.append("evtRien_saints")
         # images
@@ -66,6 +69,10 @@ init -5 python:
             renpy.show(random.choice(scenesParDefaut))
         # en lance un au hasard
         renpy.jump(random.choice(evtsVides_))
+
+label evtRien_enfant1:
+    "Aujourd'hui encore, alors que votre petit frère Charles vous a brutalisé, votre mère prend sa défense. Pourquoi le préfère-t'elle à vous qui êtes tellement plus sage ?"
+    jump fin_cycle
 
 label evtRien1_automne:
     "C'est l'époque des semailles d'orge."
@@ -114,7 +121,7 @@ label evtRien5:
 
 label evtRien6:
     with Dissolve(.5)
-    "A FAIRE"
+    "Les marchands du sud amènent dans vos marchés des machandises exotiques prisées : huile d'olives, soieries, épices..."
     jump fin_cycle
 
 label evtRien7:
@@ -125,49 +132,5 @@ label evtRien7:
 
 label evtRien8:
     with Dissolve(.5)
-    "A FAIRE"
-    jump fin_cycle
-
-label evtRien9:
-    with Dissolve(.5)
-    "Les marchands du sud amènent dans vos marchés des machandises exotiques prisées : huile d'olives, soieries, épices..."
-    jump fin_cycle
-
-label evtRien10:
-    with Dissolve(.5)
     "Les marchands du nord, de plus en plus nombreux, amènent sur vos marchés du bois, des tissus, des esclaves..."
-    jump fin_cycle
-
-label evtRien11:
-    with Dissolve(.5)
-    "Sur le modèle de l'empire romain vos serviteurs tiennent des comptes écris détaillés des opérations financières du royaume."
-    jump fin_cycle
-
-label evtRien12:
-    with Dissolve(.5)
-    "Les pirates esclavagistes ont du avoir de beaux succès en ratissant les côtes de la manche. Il y a une énorme quantité d'esclaves angles et saxons sur les marchés cette année."
-    jump fin_cycle
-
-label evtRien13:
-    with Dissolve(.5)
-    "Pour vous distraire et vous détendre vous vous prenez l'habitude de jouer aux osselets avec votre famille et vos amis."
-    jump fin_cycle
-
-label evtRien18:
-    with Dissolve(.5)
-    $ femmeFranque = francs_.CreerPrenom(False)
-    "[femmeFranque] a été accusée de vol. Elle a accepté de subir l'ordalie."
-    "Elle a plongé sa main dans un chaudron d'eau bouillante. Supportant la souffrance elle a réussi à saisir l'anneau qui s'y trouvait. Les juges ont ensuite attendu 3 jours et constaté que sa cicatrice est belle et bien formée."
-    "[femmeFranque] est donc déclarée innocente du vol."
-    jump fin_cycle
-
-label evtRien19:
-    with Dissolve(.5)
-    "Depuis que les huns ont été repoussés de Gaule par vos ancêtres ils sont devenus bien moins agressifs et bien plus commerçants."
-    "Ils ont introduit dans votre cour des objets d'orphèvrerie que vos propres artisans sont incapables de réaliser. Vous les poussez à apprendre à reproduire ces techniques."
-    jump fin_cycle
-
-label evtRien20:
-    with Dissolve(.5)
-    "La consignation de vos actes royaux et les formulaires de toute sortes nécessitent de fortes importations de papyrus d'Orient."
     jump fin_cycle
