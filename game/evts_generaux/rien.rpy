@@ -18,7 +18,7 @@ init -5 python:
         sceneParDefaut = ""
         # régénère les événements compatibles avec la situation
         evtsVides_ = [
-        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6", "evtRien7", "evtRien8"
+        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6"
         ]
         scenesParDefaut = []
         musiquesAEnquiller = []
@@ -28,6 +28,7 @@ init -5 python:
         # evts rien de l'enfance
         if ageLouis <= 18:
             evtsVides_.append("evtRien_enfant1")
+            evtsVides_.append("evtRien_enfant2")
 
         # christianisme
         # evts
@@ -72,6 +73,10 @@ init -5 python:
 
 label evtRien_enfant1:
     "Aujourd'hui encore, alors que votre petit frère Charles vous a brutalisé, votre mère prend sa défense. Pourquoi le préfère-t'elle à vous qui êtes tellement plus sage ?"
+    jump fin_cycle
+
+label evtRien_enfant2:
+    "Votre père est un grand chevalier dont vous êtes fier. Mais il passe tellement de temps à guerroyer que vous le voyez très rarement."
     jump fin_cycle
 
 label evtRien1_automne:
@@ -121,16 +126,5 @@ label evtRien5:
 
 label evtRien6:
     with Dissolve(.5)
-    "Les marchands du sud amènent dans vos marchés des machandises exotiques prisées : huile d'olives, soieries, épices..."
-    jump fin_cycle
-
-label evtRien7:
-    scene bg chasse
-    with Dissolve(.5)
-    "Vous vous faites construire un palais secondaire en bordure de forêt. Ainsi vous pourrez facilement aller chasser dès que l'envie vous en prendra."
-    jump fin_cycle
-
-label evtRien8:
-    with Dissolve(.5)
-    "Les marchands du nord, de plus en plus nombreux, amènent sur vos marchés du bois, des tissus, des esclaves..."
+    "Les marchands du sud amènent dans les marchés des marchandises exotiques prisées : huile d'olives, soieries, épices..."
     jump fin_cycle

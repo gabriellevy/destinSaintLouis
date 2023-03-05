@@ -1,7 +1,7 @@
 
 
 label intro:
-    scene bg armee_franque
+    scene bg naissance
     with dissolve
     show screen valeurs_traits
     "Vous êtes Louis IX mais vous êtes encore un enfant."
