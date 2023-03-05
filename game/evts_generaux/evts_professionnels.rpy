@@ -13,12 +13,18 @@ init -5 python:
     estPasStrategeNivExtreme = condition.Condition(metier.Stratege.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.INFERIEUR)
     estPasGrandChasseur = condition.Condition(metier.Chasseur.NOM, 5, condition.Condition.INFERIEUR)
 
+    estGuerrierAuMoinsNiv3 = condition.Condition(metier.Guerrier.NOM, trait.Trait.SEUIL_A_EXTREME, condition.Condition.SUPERIEUR_EGAL)
+
     def AjouterEvtsProfessionnels():
         global selecteur_
         # entrainement guerrier
         entrainementGuerrier = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementGuerrier")
         entrainementGuerrier.AjouterCondition(estPasGuerrierNivExtreme)
         selecteur_.ajouterDeclencheur(entrainementGuerrier)
+        adoubement = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementGuerrier")
+        adoubement.AjouterCondition(estGuerrierAuMoinsNiv3)
+        adoubement.AjouterCondition(a19ans)
+        selecteur_.ajouterDeclencheur(adoubement)
         # entrainement politique
         entrainementPolitique = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementPolitique")
         entrainementPolitique.AjouterCondition(estPasPolitiqueNivExtreme)
@@ -105,7 +111,7 @@ label entrainementPolitique:
     $ niveauExpertise = situation_.GetValCaracInt("entrainementPolitiqueNiv")
     if niveauExpertise == 0:
         $ situation_.SetValCarac("entrainementPolitiqueNiv", 1)
-        "Votre père a toujours su contrôler les chefs de clans par un mélange de force et de diplomatie? Il vous a montré toutes ses astuces et manoeuvres. Vous suivez son exemple."
+        "Votre père a toujours su contrôler les chefs de clans par un mélange de force et de diplomatie. Il vous a montré toutes ses astuces et manoeuvres. Vous suivrez son exemple."
     elif niveauExpertise == 1:
         $ situation_.SetValCarac("entrainementPolitiqueNiv", 2)
         "Vous entretenez de bons rapports avec les sénateurs romains. Malgré leur mollesse ils sont plein de bon sens et leur système de loi romaine devrait faciliter votre domination et la rentrée des impôts."
@@ -121,6 +127,12 @@ label entrainementPolitique:
     $ AjouterACarac(metier.Politique.NOM, 1)
     jump fin_cycle
 
+label adoubement:
+    scene bg armee_franque
+    with dissolve
+    "Vous êtes enfin adoubé chevalier."
+    jump fin_cycle
+
 label entrainementGuerrier:
     # s'entraîne au combat
     scene bg armee_franque
@@ -128,24 +140,13 @@ label entrainementGuerrier:
     $ niveauExpertise = situation_.GetValCaracInt("entrainementGuerrierNiv")
     if niveauExpertise == 0:
         $ situation_.SetValCarac("entrainementGuerrierNiv", 1)
-        "Il est capital pour un roi germanique de savoir manier la lance, symbole royal par excellence qui vous identifie à Wotan, père des dieux et seigneur des batailles. Ce sera donc votre première leçon au combat."
+        "Avant de pouvoir manier les armes, un roi chevalier doit devenir un cavalier émérite. Vous apprenez à chevaucher dès l'âge de cinq ans et prenez goût aux beaux et puissants destriers dès que vous avez l'âge de les monter."
     elif niveauExpertise == 1:
         $ situation_.SetValCarac("entrainementGuerrierNiv", 2)
-        "Aujourd'hui la leçon porte sur le maniement de la scramasax, le long couteau favori de vos guerriers. Il s'agit d'un long couteau dont la longueur peut varier entre 20 et 80 cm. Il s'agit autant d'une arme secondaire que d'un outil à tout faire."
-        "Un prince de sang comme vous peut bien sûr se payer une épée longue mais il est bon à un vrai prince de savoir manier toutes les armes. Il force ainsi le respect de ses hommes et prouve ses dons divins."
+        "L'épée a une valeur symbolique pour un chevalier même si elle est moins utilisée au combat que la lance. Vous apprenez à la manier avec els meilleurs maîtres."
     elif niveauExpertise == 2:
         $ situation_.SetValCarac("entrainementGuerrierNiv", 3)
-        "Vous vous entrainez au maniement de la francisque, la lourde hache de lancer franque. Son maniement est subtil car il faut lui appliquer une forte rotation mais bien utilisée à une douzaine de mètres elle enfonce aisément les armures."
-    elif niveauExpertise == 3:
-        $ situation_.SetValCarac("entrainementGuerrierNiv", 4)
-        "Vous vous entrainez au maniement de l'angon, la lance à crochet des francs. Son usage particulier est d'être lancée sur l'ennemi à bonne distance et, grâce à son crochet, d'être très difficile à extraire que ce soit d'un membre ou d'un bouclier."
-    elif niveauExpertise == 4:
-        $ situation_.SetValCarac("entrainementGuerrierNiv", 5)
-        "Maintenant que vous maîtrisez toutes les armes du guerrier franc il est temps d'apprendre à les manier parfaitement à l'unisson."
-        "Dans la mêlée, le Franc lance, quant il le faut, cet angon et si son arme atteint le corps le dard naturellement s'y enfonce, et ni celui qui a été frappé, ni personne ne peuvent aisément en retirer la pique,"
-        "empêché qu'on se trouve par les pointes crochues ayant profondément pénétré dans les chairs, où elles causent de cruelles douleurs, de sorte que, même si l'ennemi n'a pas été sérieusement touché, il meurt tout de même de sa blessure."
-        "Si le trait s'est fixé dans le bouclier, il y reste suspendu, promené partout avec lui, son extrémité traînant au sol. L'homme frappé ne peut retirer la pique à cause des crochets qui y ont pénétré, ni la couper avec l'épée parce que qu'il ne peut atteindre le bois sous l'écorce de fer."
-        "Dès que le franc a vu son ennemi dans cet embarras, il met le pied sur le bout inférieur de l'angon et le retient; sous cet pression; le bouclier est entraîné, la main qui le porte cède et laisse nue la tête et la poitrine. Le Franc saisit alors son adversaire sans défense et le tue aisément avec son épée ou son scramasax."
+        "Maintenant que vous êtes un bon cavalier et un bon bretteur vous êtes formé à l'essence de la chevallerie : le combat monté, et en particulier le maniement de la lance."
     else:
         "Vous vous entrainez au combat."
     $ AjouterACarac(metier.Guerrier.NOM, 1)

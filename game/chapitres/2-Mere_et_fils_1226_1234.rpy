@@ -1,4 +1,18 @@
 
+init -5 python:
+    import random
+    from abs import declencheur
+    from abs import selecteur
+    from abs import proba
+    from abs import condition
+    from abs.humanite import trait
+    from abs.humanite import metier
+    from abs.univers import temps
+    # from geographie import quartier
+    from abs.humanite import identite
+    from spe import dec_histo
+
+    a19ans = condition.Condition(temps.Date.AGE_ANNEES, 19, condition.Condition.SUPERIEUR_EGAL)
 
 label regence:
     scene bg regence
