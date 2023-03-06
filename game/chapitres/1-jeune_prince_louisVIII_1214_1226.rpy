@@ -15,6 +15,7 @@ init -5 python:
     estPasRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.DIFFERENT)
     estRoi = condition.Condition(metier.Metier.C_METIER, metier.Roi.NOM, condition.Condition.EGAL)
     estEnfant = condition.Condition(temps.Date.AGE_ANNEES, 15, condition.Condition.INFERIEUR_EGAL)
+    a16ans = condition.Condition(temps.Date.AGE_ANNEES, 16, condition.Condition.SUPERIEUR_EGAL)
 
     def AjouterEvtsJeunePrince():
         global selecteur_
@@ -22,6 +23,12 @@ init -5 python:
         precepteur1 = dec_histo.DecHistoU(proba.Proba(0.1, True), "precepteur1", 1214, 1230)
         precepteur1.AjouterCondition(estPasRoi)
         selecteur_.ajouterDeclencheur(precepteur1)
+        philosophie = dec_histo.DecHistoU(proba.Proba(0.1, True), "philosophie", 1214)
+        philosophie.AjouterCondition(a16ans)
+        selecteur_.ajouterDeclencheur(philosophie)
+        universite = dec_histo.DecHistoU(proba.Proba(0.1, True), "universite", 1214, 1235)
+        universite.AjouterCondition(a16ans)
+        selecteur_.ajouterDeclencheur(universite)
         # croisadeAlbigeois
         croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois)
@@ -34,6 +41,31 @@ init -5 python:
         # mort_louis_VIII
         mort_louis_VIII = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "mort_louis_VIII", temps.DateGregorienne(8, 11, 1226))
         selecteur_.ajouterDeclencheur(mort_louis_VIII)
+
+label philosophie:
+    scene bg education_saint_louis
+    menu:
+        "Quel philosophe grec a votre préférence ?"
+        "Platon":
+            "Platon et Saint Augustin prônent l'union étroite entre le trône et l'autel, c'est ainsi que vous comptez gouverner."
+            $ AjouterACarac(heros.Heros.C_SAINTETE, 1)
+        "Aristote":
+            "Aristote est le grand philosophe qui permet le mieux de comprendre le monde qui vous entoure."
+            $ AjouterACarac(metier.Politique.NOM, 1)
+
+label universite:
+    scene bg education_saint_louis
+    menu:
+        "Vous êtes maintenant suffisament éduqué pour être un bon prince. Souhaitez vous poursuivre votre éducation à l'université ?"
+        "Oui":
+            "Vous devenez plus érudit que bien des princes de votre âge, et étudiez même la théologie."
+            $ AjouterACarac(heros.Heros.C_EDUCATION, 2)
+            $ AjouterACarac(heros.Heros.C_SAINTETE, 2)
+        "Non, plutôt continuer votre apprentissage dans le domaine de la guerre":
+            $ AjouterACarac(metier.Guerrier.NOM, 1)
+            $ AjouterACarac(metier.Stratege.NOM, 1)
+        "Non, le plus important est de sieger parmi des conseillers et d'apprendre la politique":
+            $ AjouterACarac(metier.Politique.NOM, 1)
 
 label precepteur1:
     scene bg education_saint_louis

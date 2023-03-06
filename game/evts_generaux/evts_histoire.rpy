@@ -63,7 +63,9 @@ label flagellants:
     jump fin_cycle
 
 label cannonisationSaintFrancois:
-    "Feu Saint François d'Assise est un chrétien illustre, fondateur de l'ordre des moines mendiants 'les Mineurs'."
+    scene bg saint_francois
+    "Feu Saint François d'Assise est un italien chrétien illustre, fondateur de l'ordre des moines mendiants 'les frères Mineurs'."
+    "Alors qu'il vivait dans l'ascèse et la pauvreté dans le massif des appenins, il a reçu les cinq plaies du christ. Deux sur les mains, deux sur les jambes, une sur le côté."
     "Il vient d'être cannonisé par l'église. Bientôt son ordre sera rebaptisé les Franciscains, en son honneur."
     jump fin_cycle
 
