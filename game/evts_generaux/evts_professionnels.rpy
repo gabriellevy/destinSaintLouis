@@ -21,9 +21,8 @@ init -5 python:
         entrainementGuerrier = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementGuerrier")
         entrainementGuerrier.AjouterCondition(estPasGuerrierNivExtreme)
         selecteur_.ajouterDeclencheur(entrainementGuerrier)
-        adoubement = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementGuerrier")
+        adoubement = dec_histo.DecHistoU(proba.Proba(0.1, True), "adoubement", 1228, 1244)
         adoubement.AjouterCondition(estGuerrierAuMoinsNiv3)
-        adoubement.AjouterCondition(a19ans)
         selecteur_.ajouterDeclencheur(adoubement)
         # entrainement politique
         entrainementPolitique = declencheur.Declencheur(proba.Proba(0.04, True), "entrainementPolitique")
@@ -128,25 +127,51 @@ label entrainementPolitique:
     jump fin_cycle
 
 label adoubement:
-    scene bg armee_franque
+    scene bg chevalerie_dame
     with dissolve
-    "Vous êtes enfin adoubé chevalier."
+    "Il est temps pour vous de montrer si vous êtes digne d'être adoubé chevalier. Prince royal ou pas, ce n'est pas une épreuve à prendre à la légère."
+    menu:
+        "La formation d'un chevalier est à la fois morale, religieuse, et physique. Mais qu'est-ce qui est le plus important ?"
+        "La foi":
+            $ AjouterACarac(heros.Heros.C_SAINTETE, 2)
+        "La force":
+            $ AjouterACarac(metier.Guerrier.NOM, 1)
+            $ AjouterACarac(trait.Violence.NOM, 1)
+        "L'habileté":
+            $ AjouterACarac(metier.Chevalier.NOM, 1)
+            $ AjouterACarac(metier.Guerrier.NOM, 1)
+        "Le courage":
+            $ AjouterACarac(trait.Courage.NOM, 2)
+    scene bg quintaine
+    "Vous faites la preuve de votre habileté dans le maniement de la lance depuis votre destrier."
+    scene bg adoubement
+    "Vous êtes jugé digne et êtes adoubé chevalier par vos pairs. "
+    "D'abord une messe est donnée, où sont rappelés vos devoirs de lutter contre l'hérésie."
+    "Un chevalier plus âgé vous remet votre épée, symbole de la justice."
+    "Puis votre lance, symbole de la droiture."
+    "Enfin vos éperons, symboles de votre diligence."
+    "Vous n'êtes plus un adolescent, vous êtes un guerrier."
     jump fin_cycle
 
 label entrainementGuerrier:
     # s'entraîne au combat
-    scene bg armee_franque
     with dissolve
     $ niveauExpertise = situation_.GetValCaracInt("entrainementGuerrierNiv")
     if niveauExpertise == 0:
-        $ situation_.SetValCarac("entrainementGuerrierNiv", 1)
+        scene bg armee_franque
         "Avant de pouvoir manier les armes, un roi chevalier doit devenir un cavalier émérite. Vous apprenez à chevaucher dès l'âge de cinq ans et prenez goût aux beaux et puissants destriers dès que vous avez l'âge de les monter."
+        $ situation_.SetValCarac("entrainementGuerrierNiv", 1)
+        $ AjouterACarac(metier.Chevalier.NOM, 1)
     elif niveauExpertise == 1:
+        scene bg armee_franque
         $ situation_.SetValCarac("entrainementGuerrierNiv", 2)
-        "L'épée a une valeur symbolique pour un chevalier même si elle est moins utilisée au combat que la lance. Vous apprenez à la manier avec els meilleurs maîtres."
+        "L'épée a une valeur symbolique pour un chevalier même si elle est moins utilisée au combat que la lance. Vous apprenez à la manier avec les meilleurs maîtres."
     elif niveauExpertise == 2:
+        scene bg quintaine
         $ situation_.SetValCarac("entrainementGuerrierNiv", 3)
-        "Maintenant que vous êtes un bon cavalier et un bon bretteur vous êtes formé à l'essence de la chevallerie : le combat monté, et en particulier le maniement de la lance."
+        "Maintenant que vous êtes un bon cavalier et un bon bretteur vous êtes formé à l'essence de la chevalerie : le combat monté, et en particulier le maniement de la lance."
+        "Vous vous entrainez sans relâche à frapper une quintaine - un mannequin de paille- avec votre lance depuis votre destrier."
+        "Seule une réussite parfaite à cet exercice vous permettra de devenir un chevalier digne de ce nom."
     else:
         "Vous vous entrainez au combat."
     $ AjouterACarac(metier.Guerrier.NOM, 1)

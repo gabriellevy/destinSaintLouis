@@ -1,7 +1,7 @@
 class Heros:
     # caracs personnelles spécifiques de Saint Louis
     C_GLOIRE = u"Gloire" # plus elle est élevée moins il y a de chances d'usurpation. 5 = digne de Clotilde (pour l'instant)
-    C_SAINTETE = u"Sainteté"
+    C_SAINTETE = u"Foi" # un très haut niveau fera atteindre la sainteté
     C_EDUCATION = u"Éducation"
 
     # et de son royaume mises en place en début de partie
@@ -28,3 +28,16 @@ class Heros:
     # Famille
     # C_FIANCE_CLOTHILDE = u"Fiancé à CLothilde"
     # C_NB_ENFANTS = u"Nombre d'enfants" # nombre d'enfants faits avec Clothilde
+
+    # -----------------caracs / traits génériques typiquement utilisés : 
+    # trait.Violence.NOM
+    # trait.Richesse.NOM
+    # trait.Courage.NOM
+    # trait.Ruse.NOM ????
+
+    # -----------------métier génériques utilisés : 
+    # metier.Guerrier.NOM
+    # metier.Politique.NOM
+    # metier.Stratege.NOM
+    # metier.Chasseur.NOM
+    # metier.Chevalier.NOM

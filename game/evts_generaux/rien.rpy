@@ -18,7 +18,7 @@ init -5 python:
         sceneParDefaut = ""
         # régénère les événements compatibles avec la situation
         evtsVides_ = [
-        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6"
+        "evtRien1", "evtRien2", "evtRien3", "evtRien4", "evtRien5", "evtRien6", "evtRien7"
         ]
         scenesParDefaut = []
         musiquesAEnquiller = []
@@ -152,3 +152,10 @@ label evtRien6:
     with Dissolve(.5)
     "Les marchands du sud amènent dans les marchés des marchandises exotiques prisées : huile d'olives, soieries, épices..."
     jump fin_cycle
+
+label evtRien7:
+    scene bg galaad
+    with Dissolve(.5)
+    "La légende des chevaliers de la table ronde est devenue très célèbre et très populaire grâces aux fabuleux romans de chrétien de Troyes. Tout bon chevalier rêve d'atteindre les idéaux qu'elle décrit."
+    jump fin_cycle
+    
