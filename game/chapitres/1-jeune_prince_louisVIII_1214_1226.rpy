@@ -30,16 +30,16 @@ init -5 python:
         universite.AjouterCondition(a16ans)
         selecteur_.ajouterDeclencheur(universite)
         # croisadeAlbigeois
-        croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
+        croisadeAlbigeois = dec_histo.DecHistoDatePreciseU(proba.Proba(0.3, False), "croisadeAlbigeois", temps.DateGregorienne(30, 1, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois)
         # croisadeAlbigeois_2
-        croisadeAlbigeois_2 = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois_2", temps.DateGregorienne(1, 8, 1226))
+        croisadeAlbigeois_2 = dec_histo.DecHistoDatePreciseU(proba.Proba(0.3, False), "croisadeAlbigeois_2", temps.DateGregorienne(1, 8, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois_2)
         # croisadeAlbigeois_3
-        croisadeAlbigeois_3 = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "croisadeAlbigeois_3", temps.DateGregorienne(1, 10, 1226))
+        croisadeAlbigeois_3 = dec_histo.DecHistoDatePreciseU(proba.Proba(0.3, False), "croisadeAlbigeois_3", temps.DateGregorienne(1, 10, 1226))
         selecteur_.ajouterDeclencheur(croisadeAlbigeois_3)
         # mort_louis_VIII
-        mort_louis_VIII = dec_histo.DecHistoDatePreciseU(proba.Proba(1.0, False), "mort_louis_VIII", temps.DateGregorienne(8, 11, 1226))
+        mort_louis_VIII = dec_histo.DecHistoDatePreciseU(proba.Proba(0.3, False), "mort_louis_VIII", temps.DateGregorienne(8, 11, 1226))
         selecteur_.ajouterDeclencheur(mort_louis_VIII)
 
 label philosophie:
@@ -87,27 +87,28 @@ label precepteur1:
 label croisadeAlbigeois:
     scene bg chevaliers
     play music epique_principale
-    "Votre père Louis VIII le lion a courageusement pris la croix pour aller extirper l'hérésie cathare du Sud. Il est en route vers la Provence"
+    "Votre père Louis VIII le lion a courageusement pris la croix sur la demande du pape pour aller extirper l'hérésie cathare du Sud. Il est en route vers la Provence"
     jump fin_cycle
 
 label croisadeAlbigeois_2:
-    scene bg chevaliers
+    scene bg louis_8_avignon
     "Votre vaillant père Louis vient de capturer la ville d'Avignon qui résistait à sa croisade. Il envahit maintenant le Languedoc pour obtenir sa soumission."
     jump fin_cycle
 
 label croisadeAlbigeois_3:
-    scene bg chevaliers
-    "Avec l'aide de Dieu le roi Louis a obtenu la soumission de la Provence et du Languedoc. L'hérésie cathare est éliminée."
-    "Mais sur le chemin du retour il est tombé gravement malade."
+    scene bg louis_8_avignon
+    "Avec l'aide de Dieu le roi Louis a obtenu la soumission de la Provence et du Languedoc. Le comte de Raymond de Toulouse est soumis et lL'hérésie cathare est éliminée."
+    "Mais sur le chemin du retour il tombe gravement malade."
     jump fin_cycle
 
 label mort_louis_VIII:
-    scene bg priere
+    scene bg mort_louis_8
     with dissolve
     play music roi_mort noloop
     "Votre glorieux père est mort des suites de la maladie qu'il a contracté lors de sa croisade. Il était bien jeune à 39 ans et vous l'avez peu connu."
+    "Un de ses suivants lui conseille le remède ancestral contre cette maladie : l'union avec ne jeune vierge. Mais le roi a préféré mourir que de comettre ce péché mortel."
     # enterrement de Louis VIII
-    "Vous n'avez vous-même que 12 ans qu'allez vous devenir ?"
+    "Vous n'avez que 12 ans qu'allez vous devenir ?"
     jump mort_louis_VIII_2
 
 label mort_louis_VIII_2:
