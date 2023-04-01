@@ -10,6 +10,9 @@ init -5 python:
 
     def AjouterEvtsHistoire():
         global selecteur_
+        # Prussiens
+        teutoniques = dec_histo.DecHistoU(proba.Proba(0.1, True), "teutoniques", 1226)
+        selecteur_.ajouterDeclencheur(teutoniques)
         # Écu d'or
         ecuDOr = dec_histo.DecHistoU(proba.Proba(0.3, True), "ecuDOr", 1226)
         ecuDOr.AjouterCondition(estRoi)
@@ -48,6 +51,14 @@ label cathedrales:
     scene bg cathedrale_amiens
     "Et la construction de cathédrale d'Amiens vient de débuter."
     jump fin_cycle
+
+label teutoniques:
+    scene bg teutoniques
+    "L'ordre des chevaliers teutoniques est un ordre de moines militaires originellement créé pour protéger les pélerins en terre sainte."
+    "Ils ressemblent aux templiers francs mais n'acceptent que des germains -ou teutons- dans leurs rangs."
+    "Abandonnant leur première vocation ils sont maintenant un petit état qui soumet les païens prussiens à l'Est de la chrétienté avec la bénédiction du pape."
+    jump fin_cycle
+
 
 label reconquista:
     "Votre glorieux cousin Ferdinand III progresse dans la reconquista de l'Espagne sur les infidèles musulmans."
