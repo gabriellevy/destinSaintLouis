@@ -106,26 +106,36 @@ label mort_louis_VIII:
     with dissolve
     play music roi_mort noloop
     "Votre glorieux père est mort des suites de la maladie qu'il a contracté lors de sa croisade. Il était bien jeune à 39 ans et vous l'avez peu connu."
-    "Un de ses suivants lui conseille le remède ancestral contre cette maladie : l'union avec ne jeune vierge. Mais le roi a préféré mourir que de comettre ce péché mortel."
-    # enterrement de Louis VIII
+    "Un de ses suivants lui conseille le remède ancestral contre cette maladie : l'union avec ne jeune vierge. Mais le roi a préféré mourir que de commettre ce péché mortel."
+    # enterrement de Louis VIII A FAIRE ??
     "Vous n'avez que 12 ans qu'allez vous devenir ?"
     jump mort_louis_VIII_2
 
 label mort_louis_VIII_2:
-    # A FAIRE : trouver un fond pour le couronnement
+    scene bg mort_louis_8
+    show blanche at left
+    with moveinleft
     show screen valeurs_traits
     $ papa = situation_.GetValCarac(C_PERE)
     $ papa.Tuer()
     bl "Sois courageux, Louis. Ton père est mort. Mais nul doute qu'après toutes ses bonnes actions et sa piété, le Saint père l'accueillera à ses côtés."
     bl "Tu es trop jeune pour devenir roi mais ne crains rien. Les conseillers de ton père sont des hommes bons et nobles, ils vont faire au mieux."
-    bl "Ton oncle Philippe Hurepel ne peut ni ne doit être roi, c'est ta destinée de fils aîné. Pour éviter qu'il ne prenne trop d'importance il ne sera pas régent du royeaume, sinon il risquerait de prendre ton dû."
-    bl "C'est moi, ta mère, qui vait prendre la tête du royaume en attendant ta majorité. Je te formerai et j'écouterai les sages des conseillers."
+    bl "Ton oncle Philippe Hurepel ne peut ni ne doit être roi, c'est ta destinée de fils aîné. Pour éviter qu'il ne prenne trop d'importance il ne sera pas régent du royaume, sinon il risquerait de prendre ton dû."
+    bl "C'est moi, ta mère, qui vais prendre la tête du royaume en attendant ta majorité. Je te formerai et j'écouterai les sages conseils des conseillers."
+    bl "Avant tout nous allons sur le champs partir à Reims pour te faire sacrer roi. Ainsi la couronne te reviendra quand tu seras assez âgé."
     menu:
         "As tu bien compris ?"
-        "Oui":
-            "A FAIRE"
+        "Oui, mère. Je vous fais confiance, vous ferez au mieux.":
             jump regence
-        "Non":
-            "A FAIRE"
+        "Pardon mère, mais je préférerais que oncle Philippe soit roi.":
+            $ AjouterACarac(heros.Heros.C_SAINTETE, 1)
+            bl "Silence ! Tu fais honte à tes ancêtres en parlant ainsi. Ils se sont battus pour t'offrir un destin exceptionnel et tu le suivras."
+            jump regence
+        "Mais je suis tout à fait capable d'être roi tout de suite !":
+            $ AjouterACarac(trait.Violence.NOM, 1)
+            $ AjouterACarac(trait.Courage.NOM, 1)
+            bl "Ne sois pas ridicule, tu n'es qu'un enfant. Comment tiendras-tu tête à de grands seigneurs ?"
+            bl "Beaucoup d'entre eux n'attendent qu'une occasion pour te tuer et prendre ta place. Il est possible aussi qu'ils veulent élire le prochain roi comme aux temps anciens."
+            bl "Ton père a pu s'imposer car c'était un adulte et un grand guerrier. Tu devras attendre ton heure"
             jump regence
     jump regence
