@@ -16,6 +16,7 @@ init -5 python:
 
 label regence:
     scene bg regence
+    "Vous êtes maintenant roi, mais trop jeune pour régner. Votre mère Blanche prend les rènes avec énergie."
     show blanche at left
     with moveinleft
     bl "Mon fils, j'aimerais mieux vous voir mort que coupable d'un seul péché mortel."

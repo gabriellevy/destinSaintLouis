@@ -126,16 +126,26 @@ label mort_louis_VIII_2:
     menu:
         "As tu bien compris ?"
         "Oui, mère. Je vous fais confiance, vous ferez au mieux.":
-            jump regence
+            jump sacre
         "Pardon mère, mais je préférerais que oncle Philippe soit roi.":
             $ AjouterACarac(heros.Heros.C_SAINTETE, 1)
             bl "Silence ! Tu fais honte à tes ancêtres en parlant ainsi. Ils se sont battus pour t'offrir un destin exceptionnel et tu le suivras."
-            jump regence
+            jump sacre
         "Mais je suis tout à fait capable d'être roi tout de suite !":
             $ AjouterACarac(trait.Violence.NOM, 1)
             $ AjouterACarac(trait.Courage.NOM, 1)
             bl "Ne sois pas ridicule, tu n'es qu'un enfant. Comment tiendras-tu tête à de grands seigneurs ?"
             bl "Beaucoup d'entre eux n'attendent qu'une occasion pour te tuer et prendre ta place. Il est possible aussi qu'ils veulent élire le prochain roi comme aux temps anciens."
             bl "Ton père a pu s'imposer car c'était un adulte et un grand guerrier. Tu devras attendre ton heure"
-            jump regence
+            jump sacre
+    jump sacre
+
+label sacre:
+    scene bg sacre
+    "Grâce à la dilgence de votre mère tout va très vite. En moins d'un mois vous êtes à la cathédrale de Reims pour y être sacré."
+    "Elle est contrariée de l'absence de beaucoup de grands barons mais vous êtes trop excité pour vous préocupper de ce genre de détails."
+    "Vous êtes couronné par l'archevèque de Reims, devant le cardinal-légat et des pairs laïcs et éclésiastiques du royaume, qui chacun posent les mains sur votre couronne et la soutiennent."
+    "Le duc de Bourgogne vous remet les éperons d'or, et l'archevèque vous remet l'épée sacré du roi."
+    "L'apothéose du couronnement est quand vous recevez l'onction des saintes huiles de la Saint ampoule apportée miraculeusement par le Saint Esprit à l'évèque de Reims pour baptiser le roi Clovis. Sur la poitrine, la nuque et la tête."
+    "Enfin, vous recevez un anneau, le sceptre royal, et la main de justice."
     jump regence
